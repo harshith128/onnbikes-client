@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Bike or Scooty with Zero Deposite at ₹ 8/Hour - ONN Bikes</title>
+    <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/1212630252196790272/FxWkibqG.jpg"
+        type="image/x-icon">
+    <link rel='stylesheet' href="../css/style.navbar.css" />
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #overall {
+            background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/doodles.png");
+            background-color: rgba(255, 255, 255, 0.6);
+            background-blend-mode: lighten;
+            width: 100%;
+        }
+
+        #homepage {
+            margin: auto 10%;
+            margin-top: -1rem;
+            width: auto;
+            /* height: 10vh; */
+        }
+
+        #content {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template: "r1 r2";
+            margin: auto;
+            /* flex-direction: row; */
+            /* border: 1px solid blue; */
+            /* margin-top: 50px; */
+            height: 520px;
+            width: 90%;
+        }
+
+        /* #content>div {
+            flex-grow: 2;
+        } */
+
+        /* #content img {
+            width: 500px;
+            margin-left: 10px;
+            margin-bottom: 0px;
+        } */
+
+        /* #nav {
+            height: 70px;
+            display: flex;
+            flex-direction: row;
+        } */
+
+        /* 
+        #nav>div {
+            flex-grow: 1;
+            border: 1px solid red;
+            text-align: center;
+            color: #1E2D51;
+            font-weight: 790;
+            padding: 100px;
+            font-size: 12px;
+        } */
+
+        /* #nav>div:nth-child(4) {
+            height: 10px;
+            width: 5px;
+            border: 1px solid #E0E0E0;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.6);
+            background-color: white;
+        } */
+
+        /* #image {
+            background-image: url("https://www.onnbikes.com/img/ONN-logo-unit-without-shadow.png");
+            width: auto;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.6);
+            background-blend-mode: multiply;
+            border-radius: 20px;
+            border: 1px solid #E0E0E0;
+        } */
+
+        #right_top {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+
+        }
+
+        #right_top>div {
+            margin: 10%;
+            margin-bottom: 0.6rem;
+            /* margin-top: 30px; */
+            flex-grow: 1;
+            /* height: 40px; */
+            background-color: #fff;
+            /* line-height: 10%; */
+            font-family: Montserrat,sans-serif;
+            color: #1e2d51;
+        }
+
+        /* #right_content {
+            border: 1px solid black ;
+        } */
+
+        #right_3 {
+            background-color: white;
+            /* border: 1px solid greenyellow; */
+            margin: 0.1rem;
+            padding: 5%;
+            box-shadow: 2px 2px 2px 2px grey;
+        }
+
+        #right_3 div {
+            flex-grow: 1;
+        }
+
+        #right_3 div:nth-child(2) {
+            text-align: end;
+        }
+
+        .class1 {
+            font-size: 0.8rem;
+        }
+
+        /* #price {
+            margin-left: 180px;
+        } */
+
+        #promo {
+            border: 1px solid grey;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.6);
+            background-color: white;
+            padding: 5%;
+            margin-bottom: 3%;
+            background-color: #fff;
+            /* line-height: 10%; */
+            font-family: Montserrat,sans-serif;
+            color: #092a3a;
+        }
+
+        #code {
+            margin: 1rem;
+            background-color: white;
+            margin-bottom: 5%;
+        }
+
+        #ins_p {
+            text-align: end;
+        }
+
+        #insure span:nth-child(3) {
+            flex-grow: 3;
+        }
+
+        #insure {
+            margin-bottom: 5%;
+        }
+
+        #div2 {
+            display: flex;
+            margin: 0.8rem;
+            margin-right: 10%;
+            margin-left: 0%;
+            font-size: 0.7rem;
+            /* border: 1px solid green ; */
+
+            text-align: center;
+
+        }
+
+        #div3 {
+            display: flex;
+            margin: 0.8rem;
+            margin-left: 30%;
+            margin-right: 0%;
+            font-size: 0.7rem;
+            text-align: end;
+
+            /* border: 1px solid green ; */
+        }
+
+        #div3 span {
+            text-align: end;
+            /* margin-right: 0px; */
+            flex-grow: 1;
+        }
+
+        #div3 span:nth-child(2) {
+            margin-left: 0%;
+            margin-top: 2%;
+        }
+
+        #div2 span:nth-child(2) {
+            margin-left: 12%;
+            margin-top: 2%;
+        }
+
+        #d_time1,
+        #d_time2 {
+            margin-top: 0rem;
+        }
+
+        /* #accept {
+            margin-top: 0;
+        } */
+
+        #right_3>div,p{
+            /* margin: 3px; */
+            font-size: 0.7rem;
+            background-color: #fff;
+            /* line-height: 10%; */
+            font-family: Montserrat,sans-serif;
+            color: #092a3a;
+        }
+
+
+        #dt1,
+        #dt2 {
+            font-size: 2rem;
+        }
+
+        #tm1,
+        #tm2 {
+            font-size: 1rem;
+            /* margin-top: 0px; */
+        }
+
+        #mn1,
+        #mn2 {
+            font-size: 0.5rem;
+        }
+
+        #st_date,
+        #end_date {
+            color: rgb(30, 45, 81);
+        }
+
+        h2 {
+            margin-top: 0.8rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        #t_price {
+            margin-bottom: 5%;
+        }
+
+        #t_price>div {
+            flex-grow: 1;
+
+        }
+
+        #t_price>div:nth-child(2) {
+            text-align: end;
+        }
+
+        /* #tariff {
+            margin-right: 0px;
+
+        } */
+
+        #price {
+            margin-left: 10%;
+        }
+
+        #in input {
+            width: 100%;
+            background-color: white;
+            background-position: 2% 2%;
+            box-sizing: border-box;
+            appearance: none;
+            padding: 4%;
+            outline: none;
+            border: 0.1px solid grey;
+            color: black;
+        }
+
+        #in input:focus::placeholder {
+            color: transparent;
+        }
+
+        #in input::placeholder {
+            color: #222;
+            transition: color 0.3s ease
+        }
+
+        #app button {
+            text-align: center;
+            box-shadow: 0 0.1rem #999;
+            margin-top: 10%;
+            background-color: white;
+            border-radius: 15px;
+            border: 0.1px solid grey;
+        }
+
+        .class1 {
+            width: 100%;
+            text-align: left;
+        }
+
+        .class2 {
+            display: flex;
+
+        }
+
+        #ins_p {
+            /* margin-left: 25%; */
+            text-align: end;
+        }
+
+        #total div {
+            flex-grow: 1;
+
+        }
+
+        #total>div:nth-child(2) {
+            text-align: end;
+        }
+
+        #ban {
+            margin-bottom: 6%;
+        }
+
+        #div1 div {
+            flex-grow: 1;
+        }
+        #last_button button {
+            background-color: #1d2d51;
+            opacity: 0.5;
+            width: 100%;
+            height: 34px;
+            /* margin-left: 8px; */
+            font-size: 1.15rem;
+            color: white;
+            margin-top: 0.6rem;
+            padding: 0.25rem;
+            /* line-height: 30%; */
+        }
+
+        #right_content {
+            width: 100%;
+            grid-area: r2;
+        }
+
+        #left_content {
+            grid-area: r1;
+            width: 100%;
+            /* margin: 0%; */
+        }
+
+        #logo1 {
+            width: 40%;
+            display: none;
+        }
+        #accept u{
+            color: #214BA0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @media only screen and (max-width:1000px) {
+            #content {
+                display: grid;
+                width: 100%;
+                /* margin: auto; */
+                justify-items: center;
+                grid-template-columns: auto;
+                grid-template: "r1"
+                    "r2";
+            }
+
+            #right_content {
+                width: 100%;
+                grid-area: r2;
+            }
+
+            #left_content {
+                grid-area: r1;
+                /* margin-right: -10rem; */
+                width: 100%;
+                justify-items: center;
+                /* margin: auto; */
+                margin-top: 1rem;
+            }
+            #left_content{
+                color: #092a3a;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .nav-bar {
+                /* border: 1px solid black; */
+                display: none;
+            }
+
+            /* .logo1_div{
+                display: block;
+                background-color: white;
+                border: 1px solid #808080;
+                width: 40%;
+                padding: 1%;
+                margin: auto;
+                justify-content: center;
+                margin-left: 8%;
+                margin-right: -2rem;
+
+            } */
+            #logo1 {
+                width: 10%;
+                display: block;
+                border: 1px solid rgb(206, 202, 202);
+                border-radius: 20%;
+                margin-left: 15%;
+                margin-top: 2%;
+
+            }
+        }
+    </style>
+</head>
+
+<body id="overall">
+    <div id="page-details">
+    </div>
+    <div>
+
+        <img onclick="goToHomePage()" src="https://www.onnbikes.com/img/ONN-logo-unit-without-shadow.png" id="logo1" />
+    </div>
+    <div id="homepage">
+        <!-- <div id="nav">
+            <div>HOME</div>
+            <div>OFFERS</div>
+            <div>RENT-TO-OWN</div>
+            <div id="image"></div>
+            <img src="https://www.onnbikes.com/img/ONN-logo-unit-without-shadow.png" alt=""></div>
+            <div>FAQ</div>
+            <div>WELCOME</div>
+            <div>9876543210</div>
+        </div> -->
+        <div id="content">
+            <div id="left_content"></div>
+            <div id="right_content">
+                <div id="right_top">
+                    <div id="st_date">
+                        <p>START TRIP</p>
+                        <div id="d_time1">
+                            <span id="dt1"></span>
+                            <span id="tm1"></span>
+                            <div id="mn1"></div>
+                        </div>
+                    </div>
+                    <div id="end_date">
+                        <p>END TRIP</p>
+                        <div id="d_time2">
+                            <span id="dt2"></span>
+                            <span id="tm2"></span>
+                            <div id="mn2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="right_3">
+
+                </div>
+                <div id="promo">
+                    <div id="ban"></div>
+                    <div id="t_price">
+                        <div id="tariff"></div>
+                        <div id="price"></div>
+                    </div>
+                    <div id="code">
+                        <div id="in"></div>
+                        <div id="app"></div>
+                    </div>
+                    <div id="insure">
+                        <!-- <div id="ch"></div>
+                        <div id="lab"></div>
+                        <div id="ins_p"></div> -->
+                        <span id="ch"></span>
+                        <span id="lab"></span>
+                        <span id="ins_p"></span>
+                    </div>
+                    <div id="para"></div>
+                    <div id="total"></div>
+                    <div id="div1">
+                        <div id="div2">
+                            <span
+                                style="background-color: red;border: 1px solid black;width: 10px;height: 11px;">&#9747;</span>
+                        </div>
+                        <div id="div3">
+                            <span>&#9989;</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="accept">
+                    <div id="check_last"></div>
+                    <div id="para_acc">
+                    </div>
+                </div>
+                <div id="last_button"></div>
+                <!-- <div id="promo">
+                    <p>shubham</p> -->
+                <!-- <input type="text" id="pcode">
+                    <button onclick="apply()">apply</button> -->
+                <!-- </div> -->
+            </div>
+
+
+        </div>
+
+    </div>
+    <script>
+        function goToHomePage() {
+            // console.log('Home');
+            location.href = "../index.html";
+        }
+        async function show_left() {
+            let homepage = document.getElementById("homepage");
+            let content = document.getElementById("content");
+            let right_3 = document.getElementById("right_3");
+            let tariff = document.getElementById("tariff");
+            let price_show = document.getElementById("price");
+
+
+            // let parent_3 = document.getElementById("rental_data");
+            let data = JSON.parse(localStorage.getItem("checkout"));
+
+            let res = await fetch(`https://onnbikes-server.herokuapp.com/checkout/${data}`);
+            let data2 = await res.json();
+            // console.log('data2:', data2)
+            // console.log(typeof data);
+            // console.log(typeof data2);
+            // var booked_data = "";
+            // for(prod of data2.item){
+
+            // }
+            // console.log(data2.item.bookedBike["image"]);
+
+            var div = document.getElementById("left_content")
+            var image1 = document.createElement("img");
+            image1.src = data2.item.bookedBike["image"];
+            image1.style.width = '50%';
+
+            // image1.style.paddingTop = '0px'
+            var excess = document.createElement("span");
+            excess.innerText = "Excess 2km/hr";
+            excess.style.marginLeft = '2.5rem';
+            var free = document.createElement("span");
+            free.innerText = `Free 150kms`;
+            free.style.marginLeft = '5rem';
+            // excess.style.marginTop = 'auto 100px';
+            // free.style.marginTop = '2.7rem';
+
+
+            var name1 = data2.item.bookedBike["name"];
+            var n1 = name1.split(" ");
+            var p1 = n1[0];
+            var h1 = "";
+            for (var i = 1; i < n1.length; i++) {
+                h1 = h1 + n1[i] + " ";
+            }
+
+            var com = document.createElement("p");
+            com.innerText = p1
+
+            com.style.marginTop = "1rem"
+            // com.style.marginBottom = "0px";
+            com.style.marginLeft = '3rem';
+            com.style.color = "rgb(30, 45, 81)";
+            var mod = document.createElement("h1");
+            mod.innerText = h1;
+            mod.style.fontSize = "1.5rem";
+            // mod.style.margin = "0px";
+            mod.style.marginLeft = '3rem';
+            mod.style.color = "rgb(30, 45, 81)";
+            let address_label = document.createElement("h2");
+            address_label.innerText = "PICKUP & RETURN LOCATION ";
+            /* address_label.style.color = "rgb(30, 45, 81)"; */
+            address_label.style.marginLeft = '2.5rem';
+            // address_label.style.marginTop = "2px";
+            let address = document.createElement("p");
+            address.innerText = data2.item.address["address"] + ',' + data2.item.address["landmark"];
+            address.style.color = "blue";
+            address.style.fontSize = "0.8rem";
+            // address.style.marginTop = "0px";
+            address.style.opacity = "0.6"
+            address.style.marginLeft = '2.5rem';
+            address.style.marginBottom = '0.8rem'
+
+
+            var price = document.createElement("p");
+            price.innerText = data2.item.bookedBike["price"];
+
+
+
+
+            div.append(com, mod, image1, address_label, address, excess, free);
+            // div.style.width = '400px'
+            content.append(div);
+            homepage.append(content);
+        }
+
+
+
+        async function show_right() {
+            let homepage = document.getElementById("homepage");
+            let content = document.getElementById("content");
+            let right_content = document.getElementById("right_content");
+
+            let right_top = document.getElementById("right_top");
+            let st_date = document.getElementById("st_date");
+            let d_time1 = document.getElementById("d_time1");
+            let dt1 = document.getElementById("dt1");
+            let tm1 = document.getElementById("tm1");
+            let mn1 = document.getElementById("mn1");
+
+
+            let end_date = document.getElementById("end_date");
+            let d_time2 = document.getElementById("d_time2");
+            let dt2 = document.getElementById("dt2");
+            let tm2 = document.getElementById("tm2");
+            let mn2 = document.getElementById("mn2");
+
+            let promo = document.getElementById("promo");
+            let right_3 = document.getElementById("right_3");
+            let t_price = document.getElementById("t_price");
+            let ban = document.getElementById("ban");
+            let tariff_var = document.getElementById("tariff");
+            let price_var = document.getElementById("price");
+            let code = document.getElementById("code");
+            let inn = document.getElementById("in");
+            let app = document.getElementById("app");
+            let insure = document.getElementById("insure");
+            let ch = document.getElementById("ch");
+            let lab = document.getElementById("lab");
+            let ins_p = document.getElementById("ins_p");
+
+            let div1 = document.getElementById("div1");//tick+cross
+            let div2 = document.getElementById("div2");//tick
+            let div3 = document.getElementById("div3");//cross
+
+            let total_cont = document.getElementById("total");
+            let accept = document.getElementById("accept");
+            let check_last = document.getElementById("check_last");
+            let para_acc = document.getElementById("para_acc");
+            let last_button = document.getElementById("last_button");
+
+
+
+            let data = JSON.parse(localStorage.getItem("checkout"));
+
+            let res = await fetch(`https://onnbikes-server.herokuapp.com/checkout/${data}`);
+            let data2 = await res.json();
+            // data2.forEach(function(product){
+            //date 
+            var arr1 = [];
+            var arr2 = [];
+            var time1 = [];
+            var time2 = [];
+            // -------------------------------------------------------------------------------------------------------------------------------------------
+            var d1 = data2.item["startDate"];
+            var d1 = d1.split("T");
+            var [year1, month1, day1] = d1[0].split("-").map(Number);
+            var [hour1, minute1] = d1[1].split(":").map(Number);
+            arr1.push(year1);
+            arr1.push(month1);
+            arr1.push(day1);
+            time1.push(hour1);
+            time1.push(minute1);
+            let mn_words = arr1[1];
+            switch (mn_words) {
+                case 1:
+                    text = "Jan"
+                    break;
+                case 2:
+                    text = "Feb"
+                    break;
+                case 3:
+                    text = "Mar"
+                    break;
+                case 4:
+                    text = "April"
+                    break;
+                case 5:
+                    text = "May"
+                    break;
+                case 6:
+                    text = "June"
+                    break;
+                case 7:
+                    text = "July"
+                    break;
+                case 8:
+                    text = "Aug"
+                    break;
+                case 9:
+                    text = "Sept"
+                    break;
+                case 10:
+                    text = "Oct"
+                    break;
+                case 11:
+                    text = "Nov"
+                    break;
+                case 12:
+                    text = "Dec"
+
+
+                default:
+                    break;
+            }
+            dt1.innerText = arr1[2];
+            // dt1.style.font = "26px";
+            tm1.innerText = time1[0] + ":" + time1[1];
+            // tm1.style.font = "13px";
+            mn1.innerText = text + " " + arr1[0];
+            // mn1.style.font = "9px";
+            // console.log(arr1[1]);
+
+            var d2 = data2.item["endDate"];
+            var d2 = d2.split("T");
+            var [year2, month2, day2] = d2[0].split("-").map(Number);
+            var [hour2, minute2] = d2[1].split(":").map(Number);
+            arr2.push(year2);
+            arr2.push(month2);
+            arr2.push(day2);
+            time2.push(hour2);
+            time2.push(minute2);
+            let mn_words2 = arr2[1];
+            switch (mn_words2) {
+                case 1:
+                    text2 = "Jan"
+                    break;
+                case 2:
+                    text2 = "Feb"
+                    break;
+                case 3:
+                    text2 = "Mar"
+                    break;
+                case 4:
+                    text2 = "April"
+                    break;
+                case 5:
+                    text2 = "May"
+                    break;
+                case 6:
+                    text2 = "June"
+                    break;
+                case 7:
+                    text2 = "July"
+                    break;
+                case 8:
+                    text2 = "Aug"
+                    break;
+                case 9:
+                    text2 = "Sept"
+                    break;
+                case 10:
+                    text2 = "Oct"
+                    break;
+                case 11:
+                    text2 = "Nov"
+                    break;
+                case 12:
+                    text2 = "Dec"
+
+
+                default:
+                    break;
+            }
+            dt2.innerText = arr2[2];
+            tm2.innerText = time2[0] + ":" + time2[1];
+            mn2.innerText = text2 + " " + arr2[0];;
+            //console.log(arr2[2]);
+            var number_days = 1;
+            var ans = date_diff(arr1, arr2);
+            if (ans[0] == 0) {
+                number_days = number_days * ans[1];
+            }
+            else {
+                number_days = 0;
+                var len = ans[0].length;
+                for (var i = 0; i < len; i++) {
+                    number_days = number_days + 30;
+                }
+                number_days = number_days + ans[1];
+            }
+
+            function date_diff(dt1, dt2) {
+                if (dt1[0] == dt2[0]) {
+                    if (dt1[1] == dt2[1]) {
+                        var days = (dt2[2] - dt1[2]);
+                        var mon = 0;
+                        return [mon, days];
+                    } else {
+                        var mondiff = month_diff(dt1, dt2);
+                        // console.log('mondiff:', mondiff)
+                        var days_in_month_dt1 = days_in_month(dt1[1]);
+                        var days1 = days_in_month_dt1 - (dt1[2]);
+                        // console.log('days1:', days1)
+                        var days_in_month_dt2 = dt2[2]
+                        // console.log('days_in_month_dt2:', days_in_month_dt2)
+                        var mon = mondiff;
+                        var days = days1 + days_in_month_dt2;
+                        return [mon, days];
+                    }
+                }
+            }
+            function month_diff(dt1, dt2) {
+                let mon1 = dt1[1];
+                let mon2 = dt2[1];
+                obj = {
+                    01: 31,
+                    02: 28,
+                    03: 31,
+                    04: 30,
+                    05: 31,
+                    06: 30,
+                    07: 31,
+                    08: 31,
+                    09: 30,
+                    10: 31,
+                    11: 30,
+                    12: 31,
+                }
+                var day = 0;
+                for (key in obj) {
+                    if (key > mon1 && key < mon2) {
+                        day++;
+                    }
+                }
+                return day;
+            }
+
+            function days_in_month(month) {
+                obj = {
+                    01: 31,
+                    02: 28,
+                    03: 31,
+                    04: 30,
+                    05: 31,
+                    06: 30,
+                    07: 31,
+                    08: 31,
+                    09: 30,
+                    10: 31,
+                    11: 30,
+                    12: 31,
+                }
+                month = (Number(month));
+                for (key in obj) {
+                    //var temp = Number(key);
+                    if (key == month) {
+                        return (obj[key]);
+                    }
+                }
+            }
+
+            // -------------------------------------------------------------------------------------------------------------------------------------------                
+
+            let start = document.createElement("p");//2021-08-29T12:41
+            start.innerText = data2.item["startDate"];
+            let e_date = document.createElement("div");
+            e_date.innerText = data2.item["endDate"];
+
+            // refundable
+
+            let ref = document.createElement("div");
+            ref.innerText = "Refundable Deposit";
+            // ref.style.padding = "10px"
+            // ref.style.marginBottom = "0px"
+            ref.style.fontSize = "0.85rem"
+            let dep = document.createElement("div");
+            dep.innerText = "0";
+            dep.style.fontSize = "1rem";
+            // dep.style.padding = "8px"
+            // dep.style.paddingTop = "18px"
+            // dep.style.paddingLeft = "60px"
+            // dep.style.paddingRight = "0px"
+
+
+            let pay = document.createElement("p");
+            pay.innerText = "This amount has to be paid at the time of vehicle delivery";
+            // pay.style.marginTop = "1px";
+            pay.style.fontSize = "0.6rem"
+            // pay.setAttribute("class","class1")
+
+            // pricing
+            var tot_val = data2.item.bookedBike["price"] * number_days;
+            let tariff_val = tot_val;
+            // let pricing = document.createElement("p");
+            ban.innerText = "PRICING";
+            ban.setAttribute("class", "class1")
+            // pricing.style.padding = "10px"
+            // let tariff = document.createElement("p");
+            tariff_var.innerText = "Tariff(Inclusive of all tax)";
+            tariff_var.setAttribute("class", "class1");
+            // let price = document.createElement("p");
+            price_var.innerText = tot_val;
+            // price_var.style.fontSize = "14px"
+
+            let input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.placeholder = "Promocode";
+            input.style.borderRadius = "3rem";
+            input_value = input.value;
+            let btn = document.createElement("button");
+            btn.innerText = "Apply";
+            btn.setAttribute("class", "class1");
+            btn.style.marginLeft = "1rem";
+            btn.onclick = function () {
+                //console.log(input.value);
+                if (input.value == "masai30") {
+                    tot_val = Math.floor(tot_val - (tot_val * 0.3));
+                    tot_price.innerText = tot_val;
+                    btn2.innerHTML = `Payment ${tot_val}`;
+                    btn.onclick = "";
+                    btn.innerText = "Applied"
+                    btn.style.color = "green";
+                }
+                else {
+                    alert("not a valid code");
+                }
+            };
+
+
+            //insure
+            let check = document.createElement("input");
+            check.setAttribute("type", "checkbox");
+            let label = document.createElement("p");
+            label.innerText = "Insure my ride";
+            // label.style.marginRight = "0"
+            let ins_price = document.createElement("P");
+            // ins_price.innerText = "0";
+            // ins_price.style.marginLeft = "0"
+            label.setAttribute("class", "class1")
+            let para = document.createElement("p");
+            para.innerText = "*Covers the rider,pillion and vehicle T&C apply";
+            // para.style.fontSize = "10px";
+            check.onclick = function () {
+                if (check.checked == true) {
+                    ins_price.innerText = "+15";
+                    tot_val = Number(tot_val) + Number(15);
+                    tot_price.innerText = tot_val;
+                    localStorage.setItem("total_price", JSON.stringify({ price: tot_val }));
+                    btn2.innerHTML = `Payment ${tot_val}`;
+                }
+                else if (check.checked == false) {
+                    ins_price.innerText = "0";
+                    tot_val = tot_val - Number(15);
+                    tot_price.innerText = tot_val;
+                    btn2.innerHTML = `Payment ${tot_val}`;
+                    localStorage.setItem("total_price", JSON.stringify({ price: tot_val }));
+                }
+            }
+            // console.log(tot_val);
+            //exclude
+            let p1 = document.createElement("span");
+            p1.innerText = "Excludes fuel";
+            let p2 = document.createElement("span");
+            p2.innerText = "Include all taxes";
+
+            //total
+            // let tot_val = product.price * number_days
+            let tot_sen = document.createElement("div");
+            tot_sen.innerText = "Total amount is";
+            let tot_price = document.createElement("div");
+            tot_price.innerText = tot_val
+            // tot_price.style.marginLeft = "20%"
+            let btn2 = document.createElement("button");
+            btn2.innerHTML = `Payment ${tot_val}`;
+            // btn2.style.backgroundColor = "Blue";
+            // btn2.style.opacity = "0.5";
+            // btn2.style.width = "334px";
+            // btn2.style.height = "34px"
+            // btn2.style.marginLeft = "8px"
+            // btn2.style.fontSize = "20px"
+            // btn2.style.color = "white"
+
+            // console.log(tot_val);
+
+            let ch2 = document.createElement("input");
+            ch2.setAttribute("type", "checkbox");
+            let p3 = document.createElement("u");
+            p3.innerText = "I agree to the terms of use";
+            // p3.style.color = "#214BA0";
+            // let btn2 = document.createElement("button");
+            // btn2.innerHTML = `Payment ${product.price}`;
+
+
+            // data_payment = JSON.stringify(data_payment);
+
+
+
+            ch2.onclick = function () {
+                if (ch2.checked == true) {
+                    btn2.style.backgroundColor = "#1d2d51";
+                    btn2.style.opacity = "1"
+                    btn2.onclick = function () {
+                        var data_payment = [
+
+                            {
+                                user_id: data2.item["_id"],
+                                name: data2.item.bookedBike["name"],
+                                date1: data2.item["startDate"],
+                                date2: data2.item["endDate"],
+                                price: tot_val,
+                                tariff: tariff_val
+                            }
+                        ];
+
+                        data_payment = JSON.stringify(data_payment);
+
+                        fetch("https://onnbikes-server.herokuapp.com/fourth", {
+                            method: "POST",
+                            body: data_payment,
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        })
+                            .then((res) => {
+                                return res.json();
+                            })
+                            .then((res) => {
+                                // console.log('res:', res);
+                            })
+                            .catch((err) => {
+                                // console.log('err:', err);
+                            })
+
+                        window.location.href = "payment.html";
+                        // console.log(data_payment);
+
+                        // console.log('data_payment:', data_payment)
+                    }
+                }
+                else if (ch2.checked == false) {
+                    btn2.style.backgroundColor = "#1d2d51";
+                    btn2.style.opacity = "0.5";
+                    btn2.onclick = "";
+                }
+            }
+
+
+
+
+
+
+            //append-------------------------------------
+            // right_top.append(start,end_date);
+
+            ref.append(pay);
+            right_3.append(ref, dep);
+            right_3.setAttribute("class", "class2");
+
+            // tariff_var.append(tariff)
+            // price_var.append(price);
+            // ban.append(pricing,tariff_var,price_var);
+            // t_price.append(ban);
+            t_price.setAttribute("class", "class2");
+
+            inn.append(input);
+            app.append(btn);
+            code.append(inn, app);
+            code.setAttribute("class", "class2");
+
+
+            ch.append(check);
+            lab.append(label);
+            ins_p.append(ins_price);
+            insure.append(ch, lab, ins_p);
+            insure.setAttribute("class", "class2");
+
+
+            div2.append(p1);
+            div3.append(p2);
+            div1.append(div2, div3);
+            div1.setAttribute("class", "class2");
+
+
+            total_cont.append(tot_sen, tot_price);
+            total_cont.setAttribute("class", "class2");
+            promo.append(t_price, code, insure, total_cont, div1);
+
+            last_button.append(btn2)
+            check_last.append(ch2);
+            para_acc.append(p3);
+            accept.append(ch2, p3);
+
+            right_content.append(right_3, promo, accept, last_button);
+            right_content.style.width = '100%';
+
+
+            // });
+        }
+        show_left();
+        show_right();
+    </script>
+
+</body>
+
+</html>
+<script type="module">
+    import navbar from "../components/navbar.js"
+    //console.log(navbar)
+    let addto = document.getElementById("page-details");
+    addto.innerHTML = navbar()
+</script>

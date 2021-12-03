@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Bike or Scooty with Zero Deposite at ₹ 8/Hour - ONN Bikes</title>
+    <link rel="icon" href="../assets/favicon32.png"/>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background-color: rgb(250, 250, 250);
+        }
+        
+        #cardpage {
+            width: 40%;
+            border: 1px solid gray;
+            margin: 50px auto;
+            color: rgb(100, 100, 100);
+        }
+        
+        #cardpage>h3 {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .cont {
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
+        }
+        
+        #cardpage input {
+            height: 28px;
+            font-size: 16px;
+        }
+        
+        #card {
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        #cardpage label {
+            margin-top: 10px;
+        }
+        
+        #cvv,
+        #month,
+        #year {
+            width: 25%;
+            margin: 2%;
+        }
+        
+        #cvv {
+            margin-left: 44px;
+        }
+        
+        #cardpage input:not(#cardpage input[type=submit]) {
+            margin-bottom: 25px;
+            padding-left: 10px;
+        }
+        
+        #cardpage input[type=submit] {
+            padding: 5px;
+            font-size: 14px;
+            background-color: rgb(30, 45, 81);
+            color: white;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+        
+        #change {
+            width: 25%;
+            padding: 5px;
+            margin: 20px auto;
+            background-color: rgb(30, 45, 81);
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            color: white;
+        }
+        
+        #change:hover,
+        #cardpage input[type=submit]:hover {
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.6);
+        }
+        
+        .rbi {
+            border: 1px solid rgb(199, 199, 7);
+            background-color: rgb(255, 255, 193);
+            padding: 10px;
+            text-align: justify;
+            font-size: 14px;
+        }
+        
+        .rbi+p {
+            font-size: 12px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cardpage">
+        <h3>Credit / Debit / ATM Card</h3>
+        <div class="cont">
+            <form id="myCard">
+                <label>Card Number</label></br>
+                <input type="text" id="card" placeholder="Enter Card Number" />
+                <label>Valid thru:</label>
+                <input placeholder="Month" type="number" id="month" min="01" max="12" />
+                <input placeholder="Year" type="number" id="year" max="2030" min="2021" /></br>
+                <label>CVV</label>
+                <input type="password" id="cvv" minlength="3" maxlength="3" placeholder="CVV" /></br>
+                <p class="rbi">As per RBI's directive, w.e.f October 01, 2020, any Indian deabit/credit card not yet used for online e-commerce will be blocked for all online transactions. In such failure, please contact your card issuing bank to enable online usage.</p>
+                <p>I agree with the Privacy Policy by proceeding with this payment.</p>
+                <input type="submit" value="Make Payment" />
+            </form>
+            <button id="change">Cancel</button>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function verification() {
+
+        let cardNum = document.getElementById("card").value;
+        let month = document.getElementById("month").value;
+        let year = document.getElementById("year").value;
+        let cvv = document.getElementById("cvv").value;
+        if (cardNum === '' || month == 0 || year == 0 || cvv == 0 || cardNum.length != 12) {
+            alert("Please enter valied details");
+        } else {
+            setTimeout(function() {
+                //redirect to the login OTP page
+                window.location = "verify_with_OTP_popup.html";
+            }, 2000);
+        }
+    }
+
+    document.getElementById("myCard").onsubmit = function(event) {
+        event.preventDefault();
+        verification();
+    }
+
+    document.getElementById("change").addEventListener("click", changePayMethod);
+
+    function changePayMethod() {
+        window.location = "payment.html";
+    }
+
+    /* function generateOTPBox(){
+       document.body.innerHTML = null;
+       let div = document.createElement("div");
+
+       let p_otp = document.createElement("p");
+       p_otp.innerText = "OTP VERIFICATION";
+
+       let p_inbox = document.createElement("input");
+       p_inbox.type = "text";
+       p_inbox.setAttribute("id", "inBox");
+
+       let btn = document.createElement("button");
+       btn.innerText = "Verify";
+       btn.setAttribute("id", "otpBtn");
+
+       let resend = document.createElement("p");
+       resend.innerText = "Resend OTP";
+       resend.setAttribute("id", "again");
+       
+       let p_count = document.createElement("p");
+       p_count.setAttribute("id", "countDown")
+
+       div.append(p_otp, p_inbox, btn, resend, p_count);
+       document.body.append(div);
+
+       generateVerifyOTP();
+     }
+
+     function generateVerifyOTP(otp){
+         let num = Math.floor(Math.random()*100000);
+         console.log(num);
+
+         let countDown = document.getElementById("countDown");
+         document.getElementById("again").addEventListener("click", resendOTP);
+
+         //resendOTP function is the extra
+
+         function resendOTP(){
+           clearInterval(count);
+           countDown.remove();
+           generateOTPBox();
+         }
+         
+         let i = 60;
+
+         let count = setInterval(countDownTimer, 1000);
+         let set = document.getElementById("inBox").value;
+
+         function countDownTimer(){
+             countDown.innerText = `${i} seconds`;
+             i--;
+             // let set = document.getElementById("inBox").value;
+             // if(set == num){
+             //   clearInterval(count);
+             //   countDown.remove();
+             //   alert("Payment Succesfull");
+             //   window.location = "home.html"
+             // }
+             if(i == -1){
+               clearInterval(count);
+               countDown.remove();
+               alert("Payment Unsuccesfull");
+               window.location = "payment.html"
+             }
+         }
+
+         document.getElementById("otpBtn").addEventListener("click", verified);
+         function verified(){
+           let set = document.getElementById("inBox").value;
+           if(set == num){
+               clearInterval(count);
+               countDown.remove();
+               alert("Payment Succesfull");
+               window.location = "home.html"
+             } else {
+               alert("Invalied OTP")
+             }
+         }
+     }*/
+</script>

@@ -1,0 +1,236 @@
+@media only screen and (max-width: 900px) {
+    .nav-bar>div{
+        margin: 0.7rem;
+        flex-grow: 1;
+        font-weight: 600;
+    }
+    #ride-bar {
+        display: none;
+    }
+    #data_div {
+        grid-template-columns: 23% 23% 23%;
+        gap: 1%;
+        /* height: 1vw; */
+    }
+    #scroll_div{
+        height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #page-details {
+        margin-bottom: -9rem;
+    }
+    #info-bar {
+        margin-top: 6rem;
+    }
+    .head {
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin: 0.5rem;
+        line-height: 1.5rem;
+    }
+    .plan {
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-bottom: 0rem;
+    }
+    .nav-bar>div,
+    #scroll>div {
+        margin: 0.7rem;
+        flex-grow: 1;
+        font-weight: 600;
+        font-size: 80%;
+    }
+    #ride-bar {
+        display: none;
+    }
+    #data_div {
+        grid-template-columns: 23% 23% 23%;
+        gap: 1%;
+        /* height: 1vw; */
+    }
+    #scroll_div{
+        height: 100vh;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .nav-bar {
+        margin: auto 5rem;
+    }
+    .nav-bar>div{
+        margin: 0.7rem;
+        flex-grow: 1;
+        font-weight: 600;
+        font-size: 87%;
+    }
+    #logo {
+        width: 35%;
+        border-radius: 5px;
+    }
+    #ride-bar {
+        width: 96%;
+        margin-top: 1rem;
+    }
+    #ride-bar select,
+    #ride-bar input {
+        width: 90%;
+    }
+    .rideBtn button {
+        width: 100%;
+        font-weight: 350;
+        font-size: 1rem;
+    }
+    #data_div {
+        grid-template-columns: 30% 30% 30%;
+        gap: 1vw;
+        /* height: 1vw; */
+    }
+    #scroll_div{
+        height: 100vh;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .nav-bar {
+        margin: auto 5rem;
+    }
+    .nav-bar>div{
+        margin: 0.7rem;
+        flex-grow: 1;
+        font-weight: 600;
+        font-size: 89%;
+    }
+    #logo {
+        width: 35%;
+        border-radius: 5px;
+    }
+    #ride-bar {
+        width: 92%;
+        margin-top: 1rem;
+    }
+    #ride-bar select,
+    #ride-bar input {
+        width: 90%;
+    }
+    .rideBtn button {
+        width: 100%;
+        font-weight: 350;
+        font-size: 1.3rem;
+    }
+    #data_div {
+        grid-template-columns: 30% 30% 30%;
+        gap: 2%;
+        /* height: 1vw; */
+    }
+    #scroll_div{
+        height: 100vh;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .nav-bar>div,
+    #ride-bar {
+        width: 88%;
+        margin-top: 1rem;
+    }
+    #ride-bar>div {
+        padding: 0.1rem;
+    }
+    #ride-bar select,
+    #ride-bar input {
+        width: 90%;
+    }
+    .rideBtn button {
+        width: 100%;
+        font-weight: 350;
+        font-size: 1.3rem;
+    }
+    #data_div {
+        grid-template-columns: 23% 23% 23% 23% ;
+        gap: 1%;
+        /* height: 1vw; */
+    }
+    #scroll_div{
+        height: 100vh;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .nav-bar>div,
+    #ride-bar {
+        width: 82%;
+    }
+    #ride-bar>div {
+        padding: 0.2rem;
+    }
+    #ride-bar select,
+    #ride-bar input {
+        width: 90%;
+    }
+    .rideBtn button {
+        width: 100%;
+        font-weight: 350;
+        font-size: 1.3rem;
+    }
+    #data_div {
+        grid-template-columns: 23% 23% 23% 23% ;
+        gap: 2%;
+        /* height: 1vw; */
+    }
+    #scroll_div{
+        height: 100vh;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .nav-bar>div,
+    #ride-bar {
+        width: 79%;
+    }
+    #ride-bar>div {
+        padding: 0.2rem;
+    }
+    #ride-bar select,
+    #ride-bar input {
+        width: 90%;
+    }
+    .rideBtn button {
+        font-weight: 350;
+        font-size: 1.5rem;
+    }
+    #data_div {
+        grid-template-columns: 23% 23% 23% 23% ;
+        gap: 1%;
+        /* height: 1vw; */
+    }
+    #scroll_div{
+        height: 100vh;
+    }
+}
+
+@media only screen and (min-width: 1550px) {
+    .nav-bar>div,
+    #ride-bar {
+        width: 70%;
+    }
+    #ride-bar>div {
+        padding: 0.3rem;
+    }
+    #ride-bar select,
+    #ride-bar input {
+        width: 90%;
+    }
+    .rideBtn button {
+        font-size: 1.3rem;
+    }
+    #data_div {
+        grid-template-columns: 18% 18% 18% 18% 18%;
+        gap: 1%;
+        /* height: 1vw; */
+    }
+    #scroll_div{
+        height: 100vh;
+    }
+}

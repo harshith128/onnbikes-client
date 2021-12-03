@@ -1,0 +1,106 @@
+#main_div {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    gap: 5%;
+}
+/* #main_div div {
+    display: flex;
+    flex-direction: column;
+} */
+#div_one {
+    /* background-color: aqua; */
+    height: 100px;
+}
+#div_two {
+    /* background-color: blueviolet; */
+    height: 100px;
+}
+.s_one {
+    /* float: left; */
+    width: 100px;
+}
+    .s_one_one {
+        color: #c5c2cb;
+    }
+    .s_one_two {
+        width:100px;
+        height:30px;
+        font-size: 28px;
+        background-color: #ffffff;
+        
+    }
+.s_two {
+    /* float: left; */
+    width: 100px;
+}
+    .s_two_one {
+        color: #c5c2cb;
+    }
+    .s_two_two {
+        width: 100px;
+        height: 30px;
+        font-size: 18px;
+        background-color: #1e2d51;
+    }
+    
+.booking {
+    margin: auto;
+}
+.btn11 {
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #1e2d51;
+}
+.center11 {
+    text-align: center11;
+    /* padding-top: 10px; */
+    margin: auto;
+}
+.bike_name_bk {
+    color: #314a79;
+    font-weight: bold;
+}
+.one_div1 {
+    width: 200px;
+    height: auto;
+    /* height: 300px; */
+    background-color: white;
+}
+.img_div {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+}
+.img123 {
+    width: 200px;
+    height: auto;
+    max-height: 200px;
+    margin-top: 20px;
+}
+#data_div {
+    display:grid;
+    grid-template-columns: 20% 20% 20% 20%;
+}
+/* #data_div {
+    display: flex;
+    flex-direction: column;
+} */
+.oneoeno {
+    display: flex;
+    flex-direction: column;
+}
+.flex-container {
+    display: flex;
+}
+.flex-child {
+    flex: 1;
+    /* border: 1px solid yellow; */
+}
+
+/* Scroll view is impliemented here */
+#scroll_div {
+    overflow: scroll;
+    height: 450px;
+}

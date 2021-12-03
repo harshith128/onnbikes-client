@@ -1,0 +1,193 @@
+ /* citypopup css */
+        
+ .popupCity.overlayCity {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(233, 232, 232, 0.7);
+    z-index: 1;
+    display: none;
+}
+
+.popupCity .contentCity {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgb(240, 240, 240);
+    width: 95%;
+    max-width: 900px;
+    height: 550px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+.popupCity .close-btn-city {
+    cursor: pointer;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    background: rgb(255, 255, 255);
+    color: rgb(122, 122, 122);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.popupCity.activeCity .overlayCity {
+    display: block;
+}
+
+.popupCity.activeCity .contentCity {
+    transition: all 800ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.city_images_pop {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.city_left {
+    float: left;
+    margin-left: 40px;
+}
+
+.marg-top-city {
+    margin-top: 20px;
+    border-color: solid 1px black;
+}
+
+#select_c {
+    background-color: white;
+    color: rgb(92, 92, 92);
+    margin-top: 25px;
+    margin-left: 5px;
+    font-size: small;
+}
+
+.cityHeaderChoose {
+    margin-bottom: 30px;
+}
+
+.grayCity {
+    margin-top: 8px;
+    color: rgb(138, 138, 138);
+}
+/* banner pop up css */
+
+.popupBanner.overlayBanner {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(233, 232, 232, 0.7);
+    z-index: 1;
+    display: none;
+}
+
+.popupBanner .contentBanner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgba(233, 233, 233, 0);
+    width: 65%;
+    z-index: 2;
+    text-align: center;
+    /* padding: 20px; */
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    /* border: 1px solid black; */
+}
+
+.popupBanner .close-btn-Banner {
+    cursor: pointer;
+    position: relative;
+    /* right: -1100px; */
+    left: 100%;
+    /* margin-left: 100px; */
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    background: rgb(233, 233, 233);
+    color: rgb(80, 80, 80);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.popupBanner.activeBanner .overlayBanner {
+    display: block;
+}
+
+.popupBanner.activeBanner .contentBanner {
+    transition: all 800ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.city_banner_pop {
+    width: 100%;
+}
+
+#popup-1-Banner {
+    color: rgb(61, 51, 51);
+}
+
+#ride-bar {
+    width: 69.1%;
+    margin: auto;
+    display: flex;
+    border: none;
+    margin-top: 1rem;
+}
+
+#ride-bar>div {
+    flex-grow: 1;
+    text-align: center;
+    background-color: white;
+}
+
+#ride-bar * {
+    border: none;
+    cursor: pointer;
+}
+
+#ride-bar select,
+#ride-bar input {
+    color: rgb(88, 88, 88);
+    padding: 1.4rem;
+    padding-top: 1.5rem;
+}
+
+.rideBtn {
+    background-color: rgb(30, 45, 81) !important;
+}
+
+.rideBtn button {
+    background-color: rgb(30, 45, 81);
+    height: 100%;
+    color: white;
+    font-size: 1.5rem;
+    /* line-height: 37.1429px; */
+    font-weight: 400;
+    padding: 1rem;
+}
+input:focus,
+        textarea:focus,
+        select:focus {
+        outline: none;
+}

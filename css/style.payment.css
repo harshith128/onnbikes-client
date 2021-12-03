@@ -1,0 +1,159 @@
+* {
+    margin: 0px; 
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(88, 88, 88);
+}
+#payment-page {
+    width: 90%;
+    margin: auto;
+    display: flex;
+}
+h2 {
+    margin: 20px auto;
+}
+#pay-options {
+    width: 50%;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+.image{
+    width: 10%;
+    margin-right: 30px;
+}
+img {
+    height: 40px;
+    margin: auto;
+}
+.option {
+    display: flex;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
+    cursor: pointer;
+    margin-top: 10px;
+}
+.option:nth-child(3) > div:nth-child(2), .option:nth-child(4) > div:nth-child(2),.option:nth-child(6) > div:nth-child(2){
+    padding-top: 10px;
+}
+.option:hover {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.6);
+}
+input {
+    border: none;
+}
+button {
+    border: none;
+    background-color: rgb(30, 45, 81);
+    color: white;
+    height: 40px;
+    padding: 10px 30px;
+    border-radius: 30px;
+    margin-left: 30%;
+    cursor: pointer;
+}
+button:hover{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.9);
+}
+.small{
+    font-size: 12px;
+}
+.dbs {
+    display: flex;
+    margin-top: 10px;
+}
+.dbs > .dbs-logo {
+    width: 6%;
+    padding-left: 10px;
+}
+.dbs-logo img{
+    padding-top: 2px;
+    height: 15px;
+}
+#book-details {
+    width: 44%;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+#book-details > div:nth-child(2){
+    width: 100%;
+    margin: auto;
+}
+.red {
+    background-color: red;
+    padding: 0px;
+    color: white;
+    font-size: 10px;
+    padding: 2px;
+    border-radius: 12px;
+}
+.green {
+    background-color: green;
+    padding: 0px;
+    color: white;
+    font-size: 10px;
+    padding: 2px;
+    border-radius: 12px;
+}
+.book, .other {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.book {
+    padding: 15px;
+    margin: 10px auto;
+}
+.adjust {
+    display: flex;
+    flex-wrap: wrap;
+}
+.book:nth-child(1) > p ,.book:nth-child(5) > p, .book:nth-child(6) > p, .eligible > div > p, .eligible + div > div > p, .speed > div > p, .late > div > p, .terms > p{
+    width: 50%;
+}
+.right {
+    text-align: end;
+}
+.book:nth-child(2){
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.eligible > div{
+    display: flex;
+}
+.other > div, .main + p{
+    padding: 6px;
+}
+.late > p, .eligible > p, .speed > p, .excess + p, span{
+    font-size: 10px;
+}
+.book:nth-child(1){
+    margin-top: 0px;
+}
+.terms {
+    font-size: 10px;
+    text-align: center;
+}
+.reducesize {
+    font-size: 12px;
+}
+
+/* ///////////// */
+
+         @media only screen and (max-width: 1030px) {
+    #payment-page{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template: "b1"
+                       "b2";
+    }
+    #pay-options {
+    grid-area: b1;
+    width: 75%;
+    margin:5% auto;
+    }
+    #book-details {
+    margin:auto;
+    grid-area: b2;
+    width: 75%;
+   }
+
+ }

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Bike or Scooty with Zero Deposite at ₹ 8/Hour - ONN Bikes</title>
+    <link rel="icon" href="../assets/favicon32.png"/>
+    <link rel='stylesheet' href='../css/styles1.css'/>
+    <link rel='stylesheet' href="../css/styles2.css"/>
+    <link rel='stylesheet' href="../css/style.navbar.css"/>
+    <link rel='stylesheet' href="../css/style.ridebar.css"/>
+    <link rel='stylesheet' href="../css/style.second.media.css"/>
+</head>
+<body>
+    <div id="page-details">
+    </div>
+    <div class="bg-image"></div>
+    
+    <div id="ride-bar">
+    </div>
+    <div id="main_div">
+        <div id="sort_div">
+            <div id="filter_div">
+                <div class="box">
+                    <p class="item" id="p_1">FILTER</p>
+                    <p class="item" id="p_2"></p>
+                    <p class="item" id="p_3" onclick="clearFun()"><a href="" onclick="clearFun()">clear all</a></p>
+                </div>
+                
+                <h3 id="manu">MANUFACTURER</h3>
+                <div id="filter_1">
+                    <input type="checkbox" class="filter1_components untick" id="check1"  onclick="fun1(this)">
+                    <label for="check1">Royal Enfield</label>
+                    <br>
+
+                    <input type="checkbox" class="filter1_components untick" id="check2" onclick="fun2(this)">
+                    <label for="check1">Bajaj</label>
+                    <br>
+
+                    <input type="checkbox" class="filter1_components untick" id="check3" onclick="fun3(this)">
+                    <label for="check1">Honda</label>
+                    <br>
+
+                    <input type="checkbox" class="filter1_components untick" id="check4" onclick="fun4(this)">
+                    <label for="check1">Yamaha</label>
+                    <br>
+                </div>
+                <h3 id="manu2">MODEL</h3>
+                <div id="filter_2">
+                    <input type="checkbox" class="filter1_components untick" id="check5" onclick="fun5(this)">
+                    <label for="check5">350 Classic</label>
+                    <br>
+
+                    <input type="checkbox" class="filter1_components untick" id="check6" onclick="fun6(this)">
+                    <label for="check6">Avenger 220 Cruise</label>
+                    <br>
+
+                    <input type="checkbox" class="filter1_components untick" id="check7" onclick="fun7(this)">
+                    <label for="check7">Activa</label>
+                    <br>
+
+                    <input type="checkbox" class="filter1_components untick" id="check8" onclick="fun8(this)">
+                    <label for="check8">FZ</label>
+                    <br>
+
+                    <input type="checkbox" class="filter1_components untick" id="check9" onclick="fun9(this)">
+                    <label for="check9">Duke</label>
+                    <br>
+
+                    <input type="checkbox" class="filter1_components untick" id="check10" onclick="fun10(this)">
+                    <label for="check10">Pulsar</label>
+                    <br>
+
+                    <input type="checkbox" class="filter1_components untick" id="check11" onclick="fun11(this)">
+                    <label for="check11">CT 100</label>
+                    <br><br>
+                </div>
+                <h3 id="manu3">VEHICLE TYPE</h3>
+                <div id="filter_3">
+                    <input type="checkbox" id="check12" class="untick" onclick="fun12(this)">
+                    <label for="check12">Motorcycle</label>
+                    <br>
+
+                    <input type="checkbox" id="check13" class="untick" onclick="fun13(this)">
+                    <label for="check13">Scooter</label>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div id="scroll_div" class="scroll_class">
+            <div id="data_div" class="data_loading">
+                    <!-- In this div all the data from locasorage is lod  or crete div inside it by javasript -->
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup()">×</div>
+            <h1>Select Pickup Location</h1>
+            <div id="popup_div">
+
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import navbar from "../components/navbar.js"
+        //console.log(navbar)
+        let addNavbar = document.getElementById("page-details");
+        addNavbar.innerHTML = navbar()
+    
+        import ridebar from "../components/ridebar.js"
+        //console.log(ridebar)
+        let addRidebar = document.getElementById("ride-bar");
+        addRidebar.innerHTML = ridebar()
+
+        rideNowAuto();
+    </script>
+<script src="../js/second_page_script1.js"></script>
+<script src='../js/second_page_script2.js'></script>
+<script src="../js/second_page_script3.js"></script>
+<script src="../js/second_page_script4.js"></script>
+<script src="../js/second_page_script5.js"></script>
+<script src="../js/second_page_script6.js"></script>
+<script src="../js/second_page_script7.js"></script>
+<script src="../js/script_uncheck.js"></script>
+<script src="../js/city.popup.js"></script>
+</body>
+</html>

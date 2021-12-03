@@ -1,0 +1,301 @@
+/* For Ride Now button */
+
+.select_class {
+    height: 50px;
+    font-size: 18px;
+    outline: 0px;
+    border: 0px;
+    
+}
+
+
+.select_from_ride_bar {
+    height: 50px;
+    font-size: 18px;
+    outline: 0px;
+    border: 0px;
+}
+
+
+.start_date_cal {
+    height: 50px;
+    font-size: 18px;
+    outline: 0px;
+    border: 0px;
+    
+}
+
+
+.end_date_cal {
+    height: 50px;
+    font-size: 18px;
+    outline: 0px;
+    border: 0px;
+    
+}
+
+
+
+/* DATA div hover effect from here */
+
+.data_loading > div:hover{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.6);
+}
+.data_loading > div {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 10px;
+}
+
+
+.popup .overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(202, 197, 197, 0.7);
+    z-index: 1;
+    display: none;
+}
+
+.popup .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    width: 95%;
+    max-width: 800px;
+    height: 400px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+.popup .close-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.popup.active .overlay {
+    display: block;
+}
+
+.popup.active .content {
+    transition: all 800ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+/* 
+button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #222;
+    color: #222;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: #fff;
+} */
+#popup_div {
+    
+    background-color: white;
+    height: 80%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 45% 45%;
+    row-gap: 5%;
+    gap: 3%;
+}
+.class7 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+p{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+/* navbar */
+/* .nav-bar {
+    margin: auto 40px;
+    display: flex;
+    color: rgb(30, 45, 81);
+    font-weight: bold;
+}
+.nav-bar > div, #scroll > div{
+    margin: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    
+    background-color: white;
+}
+.nav-bar > div:hover, #scroll > div:hover {
+    color: orange;
+}
+#logo {
+    width: 40%;
+    border-radius: 5px;
+} */
+
+.top_img_icon{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+body {
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/doodles.png");
+    background-color: rgba(255,255,255,0.6);
+    background-blend-mode: lighten;
+}
+
+#main_div{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    /* background-image: "https://www.toptal.com/designers/subtlepatterns/patterns/doodles.png"; */
+}
+/* #main_div div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+#data_div {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    gap: 3%;
+}
+img{
+    width: 50%;
+    
+}
+#data_div div {
+    /* border: 1px solid aqua;
+    display: flex;
+    flex-direction: column; */
+    align-items: center;
+    background-color: white;
+}
+/* #sort_div {
+    margin-top: 25px;
+} */
+#filter_div {
+    width: 90%;
+    margin: 5%;
+    height: auto;
+    border: 1px solid blueviolet;
+    background-color: white;
+}
+.box{
+display: flex;
+flex-flow: row nowrap;
+justify-content: center;
+align-content: center;
+align-items:center;
+border:1px solid #e3f2fd;
+}
+.item{
+flex: 1 1 auto;
+border:1px solid #ffebee;
+}
+#ride-bar {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    border: none;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+#ride-bar > div{
+    flex-grow: 1;
+    text-align: center;
+    
+}
+#ride-bar * {
+    border: none;
+    cursor: pointer;
+}
+/* #ride-bar select, #ride-bar input{
+    padding: 20px;
+    padding-top: 24px;
+    color: rgb(88, 88, 88);
+} */
+
+.rideBtn button{
+    background-color: rgb(30, 45, 81);
+    height: 100%;
+    color: white;
+    font-size: 24px;
+    line-height: 37.1429px;
+    font-weight: 400;
+    padding: 16px;
+}
+#manu {
+    margin-top: 0;
+    margin-bottom: 0%;
+}
+#filter_1 {
+    margin-top: 0%;
+    height: 70px;
+    /* background-color: yellowgreen; */
+    overflow: scroll;
+    overflow-x: hidden;
+}
+#filter_1 input {
+    margin-left: 30px;
+}
+#manu2 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+#filter_2 {
+    margin-top: 0%;
+    height: 70px;
+    /* background-color: yellowgreen; */
+    overflow: scroll;
+    overflow-x: hidden;
+}
+#filter_2 input {
+    margin-left: 30px;
+}
+#filter_3 {
+    margin-top: 0%;
+    height: 70px;
+    /* background-color: yellowgreen; */
+    overflow: scroll;
+    overflow-x: hidden;
+}
+#filter_3 input {
+    margin-left: 30px;
+}
+#manu3 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+.filter1_components {
+    margin-left: 5px;
+}

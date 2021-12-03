@@ -1,0 +1,282 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    line-height: 1.5;
+    background-image: url("../assets/login_page_background.JPG");
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.login-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1099;
+    background-color: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.login-popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.login-popup.hid {
+    visibility: hidden;
+}
+
+.login-popup .box {
+    background-color: #ffffff;
+    width: 750px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    opacity: 0;
+    margin-left: 50px;
+    transition: all 1s ease;
+}
+
+.login-popup.show .box {
+    opacity: 1;
+    margin-left: 0;
+}
+
+.login-popup .box .img-area {
+    flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-popup .box .img-area h1 {
+    font-size: 30px;
+}
+
+.login-popup .box .img-area .img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/ONN1.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.login-popup .box .form {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 40px 30px;
+}
+
+.login-popup .box .form h1 {
+    color: #000000;
+    font-size: 30px;
+    margin: 0 0 30px;
+}
+
+.login-popup .box .form .form-control {
+    height: 45px;
+    margin-bottom: 30px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    font-size: 15px;
+    color: #000000;
+}
+
+.login-popup .box .form .form-control:focus {
+    outline: none;
+}
+
+.login-popup .box .form label {
+    font-size: 15px;
+    color: #555555;
+}
+
+.login-popup .box .form .btn {
+    width: 100%;
+    background-color: #E91E63;
+    margin-top: 40px;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.login-popup .box .form .btn:focus {
+    outline: none;
+}
+
+.login-popup .box .form .close {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/*responsive*/
+
+@media(max-width: 767px) {
+    .login-popup .box {
+        width: calc(100% - 30px);
+    }
+    .login-popup .box .img-area {
+        display: none;
+    }
+    .login-popup .box .form {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 5px;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #353e92, #3d66d8);
+    border-radius: 5px;
+    transition: .5s;
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+.social-icons {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.social-icons img {
+    width: 120px;
+    margin: 0px 12px;
+    box-shadow: 0 0 20px 0 #7f7f7f3d;
+    cursor: pointer;
+    border-radius: 1%;
+}
+
+#goog-1 {
+    height: 48px;
+}
+
+#for_OR {
+    text-align: center;
+}
+
+#login {
+    left: 50px;
+}
+
+.input-group {
+    top: 250px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #353e92, #3d66d8);
+    border: 0;
+    outline: none;
+}
+
+.chech-box {
+    margin: 30px 10px 30px 0;
+}
+
+#span_A {
+    color: #777;
+    font-size: 12px;
+    bottom: 85px;
+    position: absolute;
+}
+
+#fogot_A {
+    float: right;
+    margin-top: 15px;
+    margin-right: 30px;
+}
+
+#register {
+    left: 450px;
+}
+
+.button-box button {
+    background: transparent;
+}
+
+.form-box {
+    width: 320px;
+    height: 538px;
+    position: relative;
+    background: #ffff;
+    padding: 10px;
+    overflow: hidden;
+}
+
+#new_onn_bike_sg {
+    margin-top: 2px;
+    text-align: center;
+}
+
+.text-danger {
+    color: red;
+    font-size: 10px;
+    margin-top: 0;
+    line-height: 0px;
+}

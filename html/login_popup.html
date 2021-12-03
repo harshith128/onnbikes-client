@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login popup box</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rent a Bike or Scooty with Zero Deposite at ₹ 8/Hour - ONN Bikes</title>
+    <link rel="icon" href="../assets/favicon32.png"/>
+    <link rel="stylesheet" href="../css/style_login_popup.css" type="text/css">
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="bg-image"></div>
+    <div class="login-popup">
+        <div class="box">
+            <div class="img-area">
+                <div class="img">
+                </div>
+            </div>
+            <div class="form">
+                <div class="close">x</div>
+                <!--- modification start from here --->
+                <!--- upper blue color signin and login button --->
+                <div class="form-box">
+                    <div class="button-box">
+                        <div id="btn"></div>
+                        <button type="button" class="toggle-btn" onclick="login()">LOGIN</button>
+                        <button type="button" class="toggle-btn" onclick="register()">SIGNUP</button>
+                    </div>
+                    <!--- social icons for google and facebook --->
+                    <div class="social-icons">
+                        <img src="../assets/fsss.jpeg">
+                        <img src="../assets/goog.png" id="goog-1">
+                    </div>
+                    <div id="for_OR">
+                        <p>OR</p>
+                    </div>
+                    <!--- login form modification --->
+                    <form id="login" class="input-group" role="form" onsubmit="login2(event)">
+                        <input type="text" class="input-field" id="Email" placeholder="Email id">
+                        <input type="password" class="input-field" id="pass" placeholder="Enter password">
+                        <input type="checkbox" class="chech-box"><span id="span_A">Remember</span>
+                        <a href="#" id="fogot_A">Forgot?</a>
+                        <button type="submit" class="submit-btn" class="lgsu_w">log In</button>
+                        <div id="new_onn_bike_sg">
+                            <a href="#">New to onn Bikes?signup</a>
+                        </div>
+                    </form>
+
+                    <!--- Signin form modification --->
+                    <form id="register" class="input-group" role="form" onsubmit="return validation(event)">
+                        <input type="text" class="input-field" id="fname" placeholder="First name">
+                        <span id="firstname" class="text-danger error_d"></span>
+                        <input type="text" class="input-field" id="lname" placeholder="Last name">
+                        <span id="lastname" class="text-danger error_d"></span>
+                        <input type="text" class="input-field" id="email" placeholder="Email Id">
+                        <span id="emailid" class="text-danger error_d"></span>
+                        <input type="text" class="input-field" id="num" placeholder="mobile number">
+                        <span id="mobnum" class="text-danger error_d"></span>
+                        <input type="password" class="input-field" id="pwd" placeholder="Enter password">
+                        <span id="passw" class="text-danger error_d"></span>
+                        <button type="submit" class="submit-btn" class="lgsu_w">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/script_log_popup.js"></script>
+    <!-- <script src="../js/boostrap_js.js"></script> -->
+
+</body>
+
+</html>
+<script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    function register() {
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+    }
+
+    function login() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0";
+    }
+</script>
+
+<!--- script for signup details store in local storage --->
+<script>
+    async function signUp(e) {
+        // console.log("hi")
+        let user_fname = document.getElementById('fname').value;
+        let user_lname = document.getElementById('lname').value;
+        let user_email = document.getElementById('email').value;
+        let user_num = document.getElementById('num').value;
+        let user_pwd = document.getElementById('pwd').value;
+
+        var signUpForm = {
+            first_name: user_fname,
+            last_name: user_lname,
+            email: user_email,
+            mobNum: user_num,
+            password: user_pwd
+        }
+
+        signUpForm = JSON.stringify(signUpForm)
+        // console.log("signup datails " + signUpForm)
+
+
+        let res = await fetch(`https://onnbikes-server.herokuapp.com/signup/users`, {
+
+            method: "POST",
+            body: signUpForm,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        // console.log(res)
+        let data = await res.json()
+        // console.log(data)
+        if(data === true){
+            alert("email id found please login")
+            location.href = "";
+        } else {
+            alert("signup");
+            location.href = "";
+        }
+    }
+
+   
+    async function login2(el) {
+        el.preventDefault();
+        let Email = document.getElementById('Email').value;
+        let pass = document.getElementById('pass').value;
+        
+
+        let loginForm = {
+            email:Email,
+            password:pass
+        }
+        loginForm = JSON.stringify(loginForm)
+        // console.log(loginForm)
+
+        let res = await fetch(`https://onnbikes-server.herokuapp.com/login/users`, {
+
+            method:"POST",
+            body:loginForm,
+            headers:{"Content-Type": "application/json"}
+        })
+        // console.log(res)
+        let data = await res.json()
+        let userArr = data.user
+        if(userArr.length === 0){
+            alert("enter valid details")
+        } else {
+            alert("Log in successfully")
+            let userId = {userId:userArr[0]._id}
+            localStorage.setItem("user_login",JSON.stringify(userId));
+            loginPopup.classList.remove("show");
+            document.location.href = "second_page.html";
+            // console.log(userArr[0]._id)
+            // console.log(JSON.parse(localStorage.getItem("user_login")));
+        }
+    }
+
+    function validation(event) {
+        event.preventDefault()
+    var f = document.getElementById("fname").value;
+    var l = document.getElementById("lname").value;
+    var p = document.getElementById("pwd").value;
+    var mo = document.getElementById("num").value;
+    var e = document.getElementById("email").value;
+    clearPre()
+    if (f === "") {
+        document.getElementById('firstname').innerHTML = "please fill the firstname";
+        // alert("please fill the firstname");
+        return false;
+
+    }
+
+    if ((f.length <= 2) || (f.length > 10)) {
+        document.getElementById('firstname').innerHTML = "first name length must be between 2 and 10";
+        //alert("first name length must be between 2 and 10");
+        return false;
+    }
+    if (!isNaN(f)) {
+        document.getElementById('firstname').innerHTML = "only character allowed here";
+        //alert("only character allowed here");
+        return false;
+    }
+    clearPre()
+    if (l === "") {
+        document.getElementById('lastname').innerHTML = "please fill the lastname";
+        // alert("please fill the lastname");
+        return false;
+    }
+    if ((l.length <= 2) || (l.length > 10)) {
+        document.getElementById('lastname').innerHTML = "last name length must be between 2 and 10";
+        //alert("last name length must be between 2 and 10");
+        return false;
+    }
+    if (!isNaN(l)) {
+        document.getElementById('lastname').innerHTML = "only character allowed here";
+        //alert("only character allowed here");
+        return false;
+    }
+    clearPre()
+    if (e === "") {
+        document.getElementById('emailid').innerHTML = "please fill the emailid";
+        //alert("please fill the Email ID");
+        return false;
+    }
+    if ((e.charAt(e.length - 4) != ".") && (e.charAt(e.length - 3) != ".")) {
+        document.getElementById('emailid').innerHTML = "invalid '.' position";
+        //alert("invalid '.' position");
+        return false;
+
+    }
+    if (e.indexOf('@') <= 0) {
+        document.getElementById('emailid').innerHTML = "invalid '@' position";
+        //alert("invalid '@' position");
+        return false;
+    }
+    clearPre()
+    if (mo === "") {
+        document.getElementById('mobnum').innerHTML = "please fill the mobnum";
+        // alert("please fill the mobile number");
+        return false;
+    }
+    if (isNaN(mo)) {
+        document.getElementById('mobnum').innerHTML = "user must write a number not a character";
+        //alert("You must have to enter number not a character");
+        return false;
+    }
+    if (mo.length != 10) {
+        document.getElementById('mobnum').innerHTML = "please enter valid 10 digit mobile number";
+        //alert("please enter valid 10 digit mobile number");
+        return false;
+    }
+    clearPre()
+    if (p === "") {
+        document.getElementById('passw').innerHTML = "please fill the pass";
+        //alert("please fill the password");
+        return false;
+    }
+    if ((p.length <= 5)) {
+        document.getElementById('passw').innerHTML = "password is too weak";
+        // alert("password length must be between 5 and 8");
+        return false;
+    }
+    clearPre()
+    
+    signUp()
+}
+
+function clearPre(){
+    document.getElementById('firstname').innerHTML = null;
+    document.getElementById('lastname').innerHTML = null;
+    document.getElementById('emailid').innerHTML = null;
+    document.getElementById('mobnum').innerHTML = null;
+    document.getElementById('passw').innerHTML = null;
+    return true
+}
+
+</script>

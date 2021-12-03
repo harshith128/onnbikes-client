@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Bike or Scooty with Zero Deposite at ₹ 8/Hour - ONN Bikes</title>
+    <link rel="icon" href="./assets/favicon32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> -->
+    <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/1212630252196790272/FxWkibqG.jpg" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="./assets/favicon32.png" />
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* citypopup css */
+        
+        .popupCity.overlayCity {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(233, 232, 232, 0.7);
+            z-index: 1;
+            display: none;
+        }
+        
+        .popupCity .contentCity {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgb(240, 240, 240);
+            width: 95%;
+            max-width: 900px;
+            height: 550px;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+        
+        .popupCity .close-btn-city {
+            cursor: pointer;
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            background: rgb(255, 255, 255);
+            color: rgb(122, 122, 122);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+        }
+        
+        .popupCity.activeCity .overlayCity {
+            display: block;
+        }
+        
+        .popupCity.activeCity .contentCity {
+            transition: all 800ms ease-in-out;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .city_images_pop {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+        
+        .city_left {
+            float: left;
+            margin-left: 40px;
+        }
+        
+        .marg-top-city {
+            margin-top: 20px;
+            border-color: solid 1px black;
+        }
+        
+        #select_c {
+            background-color: white;
+            color: rgb(92, 92, 92);
+            margin-top: 25px;
+            margin-left: 5px;
+            font-size: small;
+        }
+        
+        .cityHeaderChoose {
+            margin-bottom: 30px;
+        }
+        
+        .grayCity {
+            margin-top: 8px;
+            color: rgb(138, 138, 138);
+        }
+        /* banner pop up css */
+        
+        .popupBanner.overlayBanner {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(233, 232, 232, 0.7);
+            z-index: 1;
+            display: none;
+        }
+        
+        .popupBanner .contentBanner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(233, 233, 233, 0);
+            width: 65%;
+            z-index: 2;
+            text-align: center;
+            /* padding: 20px; */
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+            /* border: 1px solid black; */
+        }
+        
+        .popupBanner .close-btn-Banner {
+            cursor: pointer;
+            position: relative;
+            /* right: -1100px; */
+            left: 100%;
+            /* margin-left: 100px; */
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            background: rgb(233, 233, 233);
+            color: rgb(80, 80, 80);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+        }
+        
+        .popupBanner.activeBanner .overlayBanner {
+            display: block;
+        }
+        
+        .popupBanner.activeBanner .contentBanner {
+            transition: all 800ms ease-in-out;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .city_banner_pop {
+            width: 100%;
+        }
+        
+        #popup-1-Banner {
+            color: rgb(61, 51, 51);
+        }
+        
+        body {
+            width: 100%;
+            padding: 0%;
+            margin: 0%;
+        }
+        
+        #scroll {
+            height: 5.5rem;
+            background-color: rgba(0, 0, 0, 0);
+            position: fixed;
+            top: -100px;
+            width: 100%;
+            display: block;
+            transition: top 0.3s;
+            display: flex;
+            color: rgb(30, 45, 81);
+            background-color: white;
+        }
+        
+        .nav-bar {
+            margin: auto 5rem;
+            display: flex;
+            color: white;
+        }
+        
+        .nav-bar>div,
+        #scroll>div {
+            margin: 0.7rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 100%;
+        }
+        
+        .nav-bar>div:hover,
+        #scroll>div:hover {
+            color: orange;
+        }
+        
+        #logo {
+            width: 35%;
+            border-radius: 5px;
+        }
+        
+        #page-details {
+            background-image: url("https://www.onnbikes.com/img/Self-ride-bike-rentals-desktop@2x.jpg");
+            background-color: rgba(255, 255, 255, 0.6);
+            height: 36rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin-bottom: 3.5rem;
+        }
+        
+        #info-bar {
+            text-align: center;
+            margin: auto;
+            margin-top: 9rem;
+            color: white;
+        }
+        
+        .head {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0.5rem;
+            line-height: 1.5rem;
+        }
+        
+        .plan {
+            font-size: 1.9rem;
+            font-weight: 500;
+            margin-bottom: 0rem;
+        }
+        
+        #ride-bar {
+            width: 69.1%;
+            margin: auto;
+            display: flex;
+            border: none;
+            margin-top: 1rem;
+        }
+        
+        #ride-bar>div {
+            flex-grow: 1;
+            text-align: center;
+            background-color: white;
+        }
+        
+        #ride-bar * {
+            border: none;
+            cursor: pointer;
+        }
+        
+        #ride-bar select,
+        #ride-bar input {
+            color: rgb(88, 88, 88);
+            padding: 1.4rem;
+            padding-top: 1.5rem;
+        }
+        
+        .rideBtn {
+            background-color: rgb(30, 45, 81) !important;
+        }
+        
+        .rideBtn button {
+            background-color: rgb(30, 45, 81);
+            height: 100%;
+            color: white;
+            font-size: 1.5rem;
+            /* line-height: 37.1429px; */
+            font-weight: 400;
+            padding: 1rem;
+        }
+        
+        .appLink {
+            margin-bottom: 50px;
+            display: flex;
+        }
+        
+        .appLink>* {
+            flex-grow: 1;
+            text-align: center;
+            color: rgb(88, 88, 88);
+        }
+        
+        h1,
+        p,
+        h3 {
+            text-align: center;
+        }
+        
+        .safe {
+            color: rgb(88, 88, 88);
+        }
+        
+        .safe>h1 {
+            font-size: 35px;
+            line-height: 28px;
+            font-weight: 400;
+        }
+        
+        .safe>p {
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 300;
+            margin-top: 15px;
+        }
+        
+        .safty {
+            margin-bottom: 50px;
+            display: flex;
+            margin: 4%;
+        }
+        
+        .safty>div {
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            margin: 1%;
+            text-align: center;
+            padding: 12px 6px;
+            padding-bottom: 30px;
+        }
+        
+        .safty img {
+            height: 100px;
+        }
+        
+        .safty p+p {
+            font-size: 14px;
+            line-height: 28px;
+            font-weight: 300;
+        }
+        
+        .safty>div:hover {
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.6);
+        }
+        
+        .safty p {
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 400;
+            margin: 0px 0px 10px;
+            color: rgb(51, 51, 51);
+        }
+        
+        .press {
+            margin: 30px 120px;
+            display: flex;
+            flex-grow: 1;
+        }
+        
+        .cover p,
+        .us>h1 {
+            font-size: 35px;
+            line-height: 28px;
+            font-weight: 400;
+            color: rgb(88, 88, 88);
+        }
+        
+        .cover p+p,
+        .us>p {
+            font-size: 18px;
+            font-weight: 300;
+            margin-top: 10px;
+            color: rgb(88, 88, 88);
+        }
+        
+        .press>div {
+            flex-grow: 1;
+        }
+        
+        .press>div:nth-child(2) img {
+            margin-top: 10px;
+        }
+        
+        .press>div:nth-child(3) img {
+            margin-top: 15px;
+        }
+        
+        .press>div:nth-child(5) img {
+            margin-top: 10px;
+        }
+        
+        .press img {
+            width: 80%;
+            margin: auto;
+        }
+        
+        .contact,
+        .faq {
+            margin: 2% auto;
+            display: flex;
+            width: 94%;
+            color: rgb(88, 88, 88);
+        }
+        
+        .contact>div:nth-child(1),
+        .faq>div {
+            flex-grow: 1;
+            width: 46%;
+            margin: 10px 2%;
+        }
+        
+        .faq>div {
+            padding: 50px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+        }
+        
+        .contact>div:nth-child(2) {
+            flex-grow: 1;
+            width: 46%;
+            margin: 10px 2%;
+            display: grid;
+            grid-template-columns: auto;
+        }
+        
+        .faq>div>p:nth-child(2n) {
+            font-size: 14px;
+        }
+        
+        .faq>div>p:nth-child(2n+1) {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .faq>div>p:nth-child(2) {
+            margin-bottom: 20px;
+        }
+        
+        .faq>div:hover {
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+        }
+        
+        .contact>div>input:nth-child(n+3) {
+            width: 94%;
+            margin: 1%;
+            height: 2rem;
+        }
+        
+        .contact>div>input:nth-child(-n+2) {
+            width: 45%;
+            margin: 1%;
+            height: 2rem;
+        }
+        
+        .contact>div>textarea {
+            height: 80px;
+            margin: 1%;
+            width: 94%;
+        }
+        
+        textarea::placeholder {
+            padding: 10px;
+        }
+        
+        .submit {
+            background-color: rgb(30, 45, 81);
+            cursor: pointer;
+            color: white;
+        }
+        
+        input[type="text"]::placeholder,
+        input[type="number"]::placeholder,
+        input[type="email"]::placeholder {
+            padding-left: 10px;
+        }
+        
+        .facts {
+            /* background-color: rgb(243, 243, 243); */
+            color: rgb(88, 88, 88);
+        }
+        
+        .facts>h1 {
+            color: rgb(88, 88, 88);
+            font-size: 35px;
+            line-height: 28px;
+            font-weight: 400;
+            padding: 20px;
+            padding-top: 40px;
+        }
+        
+        .facts>p {
+            color: rgb(30, 45, 81);
+            font-size: 18px;
+            line-height: 19.8px;
+        }
+        
+        .faq p {
+            line-height: 25px;
+            text-align: left;
+        }
+        
+        .ourAdd>p {
+            padding: 15px;
+            text-align: left;
+            padding-left: 25px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+        
+        .ourAdd>p:hover {
+            background-color: rgb(30, 45, 81);
+            color: white;
+        }
+        
+        .bikes>div {
+            width: 50%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 12px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            padding: 20px;
+        }
+        
+        .bikes p {
+            line-height: 30px;
+            font-weight: 100;
+            font-size: 14px;
+        }
+        
+        .blog {
+            width: 80%;
+            margin: auto;
+        }
+        
+        .blog>p {
+            font-size: 16px;
+            font-weight: 200;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        .bikes h3 {
+            margin: 50px auto 25px;
+        }
+        
+        span {
+            font-size: 40px;
+        }
+        /* //////////////////// */
+        
+        @media only screen and (max-width: 900px) {
+            #info-bar {
+                margin-top: 6rem;
+            }
+            .head {
+                font-size: 3.2rem;
+                font-weight: 700;
+                margin: 0.5rem;
+                line-height: 1.5rem;
+            }
+            .plan {
+                font-size: 1.4rem;
+                font-weight: 500;
+                margin-bottom: 0rem;
+            }
+            .nav-bar>div,
+            #scroll>div {
+                margin: 0.7rem;
+                flex-grow: 1;
+                font-weight: 600;
+            }
+            #ride-bar {
+                display: none;
+            }
+        }
+        
+        @media only screen and (max-width: 1000px) {
+            #page-details {
+                margin-bottom: -9rem;
+            }
+            #info-bar {
+                margin-top: 6rem;
+            }
+            .head {
+                font-size: 3.2rem;
+                font-weight: 700;
+                margin: 0.5rem;
+                line-height: 1.5rem;
+            }
+            .plan {
+                font-size: 1.4rem;
+                font-weight: 500;
+                margin-bottom: 0rem;
+            }
+            .nav-bar>div,
+            #scroll>div {
+                margin: 0.7rem;
+                flex-grow: 1;
+                font-weight: 600;
+                font-size: 80%;
+            }
+            #ride-bar {
+                display: none;
+            }
+            .appLink {
+                margin-bottom: 50px;
+                display: grid;
+                grid-template-columns: auto;
+            }
+            .safty {
+                margin-bottom: 50px;
+                display: grid;
+                grid-template-columns: auto;
+                grid-gap: 10px;
+                margin: 4%;
+            }
+            .safty>div {
+                margin: 1%;
+                text-align: center;
+                padding: 18px 9px;
+                padding-bottom: 10rem;
+            }
+            .press {
+                margin: 30px 120px;
+                display: grid;
+                grid-template-columns: auto;
+            }
+            .press>div:nth-child(1) {
+                grid-area: p1;
+            }
+            .press>div:nth-child(2) {
+                margin-top: -0.6rem;
+                grid-area: p2;
+            }
+            .press>div:nth-child(3) {
+                margin-top: 1.6rem;
+                grid-area: p3;
+            }
+            .press>div:nth-child(4) {
+                grid-area: p4;
+            }
+            .press>div:nth-child(5) {
+                margin-top: 1rem;
+                grid-area: p5;
+            }
+            .press {
+                grid-template: "p1 p1 p2 p2" "p3 p4 p4 p5";
+            }
+            .press img {
+                width: 70%;
+            }
+            .contact {
+                display: grid;
+                grid-template-columns: auto;
+                margin: auto;
+            }
+            .contact>div:nth-child(1) {
+                width: 76%;
+                margin: 2rem 15%;
+                display: grid;
+                grid-template-columns: auto;
+            }
+            .contact>div>input:nth-child(-n+2) {
+                width: 94%;
+            }
+            .contact>div:nth-child(2) {
+                width: 76%;
+                margin: 10px 15%;
+                display: grid;
+                grid-template-columns: auto;
+            }
+            .faq {
+                margin: auto 5%;
+                display: grid;
+                grid-template-columns: auto;
+                width: 90%;
+                grid-template: "f1" "f2";
+            }
+            .faq div:nth-child(1) {
+                width: 80%;
+                grid-area: f1;
+            }
+            .faq div:nth-child(2) {
+                width: 80%;
+                grid-area: f2;
+            }
+            .bikes div {
+                display: grid;
+                grid-template-columns: auto;
+                width: 75%;
+                grid-gap: 0rem;
+            }
+            .bikes p {
+                line-height: 1rem;
+                font-weight: 100;
+                font-size: 14px;
+            }
+        }
+        
+        @media only screen and (min-width: 1000px) {
+            .nav-bar {
+                margin: auto 5rem;
+            }
+            .nav-bar>div,
+            #scroll>div {
+                margin: 0.7rem;
+                flex-grow: 1;
+                font-weight: 600;
+                font-size: 87%;
+            }
+            #logo {
+                width: 35%;
+                border-radius: 5px;
+            }
+            #page-details {
+                margin-bottom: -6.5rem;
+            }
+            #info-bar {
+                margin-top: 6rem;
+            }
+            .head {
+                font-size: 3.2rem;
+                font-weight: 700;
+                margin: 0.5rem;
+                line-height: 1.5rem;
+            }
+            .plan {
+                font-size: 1.4rem;
+                font-weight: 500;
+                margin-bottom: 0rem;
+            }
+            #ride-bar {
+                width: 96%;
+                margin-top: 1rem;
+            }
+            #ride-bar select,
+            #ride-bar input {
+                width: 90%;
+            }
+            .rideBtn button {
+                width: 100%;
+                font-weight: 350;
+                font-size: 1rem;
+            }
+        }
+        
+        @media only screen and (min-width: 1100px) {
+            .nav-bar {
+                margin: auto 5rem;
+            }
+            .nav-bar>div,
+            #scroll>div {
+                margin: 0.7rem;
+                flex-grow: 1;
+                font-weight: 600;
+                font-size: 89%;
+            }
+            #logo {
+                width: 35%;
+                border-radius: 5px;
+            }
+            #page-details {
+                margin-bottom: -4.5rem;
+            }
+            #info-bar {
+                margin-top: 7rem;
+            }
+            .head {
+                font-size: 3.2rem;
+                font-weight: 700;
+                margin: 0.5rem;
+                line-height: 1.5rem;
+            }
+            .plan {
+                font-size: 1.4rem;
+                font-weight: 570;
+                margin-bottom: 0rem;
+            }
+            #ride-bar {
+                width: 92%;
+                margin-top: 1rem;
+            }
+            #ride-bar select,
+            #ride-bar input {
+                width: 90%;
+            }
+            .rideBtn button {
+                width: 100%;
+                font-weight: 350;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media only screen and (min-width: 1200px) {
+            .nav-bar>div,
+            #scroll>div {
+                font-size: 98%;
+            }
+            #page-details {
+                margin-bottom: -1.5rem;
+            }
+            #info-bar {
+                margin-top: 8.5rem;
+            }
+            #ride-bar {
+                width: 88%;
+                margin-top: 1rem;
+            }
+            #ride-bar>div {
+                padding: 0.1rem;
+            }
+            #ride-bar select,
+            #ride-bar input {
+                width: 90%;
+            }
+            .rideBtn button {
+                width: 100%;
+                font-weight: 350;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media only screen and (min-width: 1300px) {
+            .nav-bar>div,
+            #scroll>div {
+                font-size: 98%;
+            }
+            #page-details {
+                margin-bottom: 1.2rem;
+            }
+            #info-bar {
+                margin-top: 9.5rem;
+            }
+            #ride-bar {
+                width: 82%;
+            }
+            #ride-bar>div {
+                padding: 0.2rem;
+            }
+            #ride-bar select,
+            #ride-bar input {
+                width: 90%;
+            }
+            .rideBtn button {
+                width: 100%;
+                font-weight: 350;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media only screen and (min-width: 1400px) {
+            .nav-bar>div,
+            #scroll>div {
+                font-size: 98%;
+            }
+            #info-bar {
+                margin-top: 9.5rem;
+            }
+            #ride-bar {
+                width: 79%;
+            }
+            #ride-bar>div {
+                padding: 0.2rem;
+            }
+            #ride-bar select,
+            #ride-bar input {
+                width: 90%;
+            }
+            .rideBtn button {
+                font-weight: 350;
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media only screen and (min-width: 1550px) {
+            .nav-bar>div,
+            #scroll>div {
+                font-size: 99%;
+            }
+            #page-details {
+                margin-bottom: 2.5rem;
+            }
+            #info-bar {
+                margin-top: 10.2rem;
+            }
+            #ride-bar {
+                width: 70%;
+            }
+            #ride-bar>div {
+                padding: 0.3rem;
+            }
+            #ride-bar select,
+            #ride-bar input {
+                width: 90%;
+            }
+            .rideBtn button {
+                font-size: 1.3rem;
+            }
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="scroll">
+        <div id="whyScroll">WHY ONN?</div>
+        <div>FLEET AND PRICING</div>
+        <div>SAFETY</div>
+        <div id="scroll-top">
+            <img src="https://www.onnbikes.com/img/ONN-logo-unit-without-shadow.png" id="logo" />
+        </div>
+        <div id="faq-btnScroll">FAQ</div>
+        <div>LOGIN/SIGNUP</div>
+        <div>+918378007800</div>
+    </div>
+    <div id="page-details">
+        <div class="nav-bar">
+            <div id="why">WHY ONN?</div>
+            <div>FLEET AND PRICING</div>
+            <div>SAFETY</div>
+            <div>
+                <img src="https://www.onnbikes.com/img/ONN-logo-unit-without-shadow.png" id="logo" />
+            </div>
+            <div id="faq-btn">FAQ</div>
+            <div onclick="goToLoginPage()">LOGIN/SIGNUP</div>
+            <div>+918378007800</div>
+        </div>
+        <div id="info-bar">
+            <h1 class="head">SELF RIDE BIKE RENTALS</h1>
+            <h3 class="plan">NOW STARTS AT ₹ 8/HOUR</h3>
+        </div>
+        <div class="popupBanner" id="popup-1-Banner">
+            <div class="overlayBanner"></div>
+            <div class="contentBanner">
+                <div class="close-btn-Banner" onclick="togglePopupBanner(1)">×</div>
+                <img src="https://marketingonn.s3.ap-south-1.amazonaws.com/WebsiteBanners/NewYear-2021-Desktop-Banner.jpg" alt="banner_onn" class="city_banner_pop">
+            </div>
+        </div>
+        <div id="ride-bar">
+            <div class="city">
+                <div class="popupCity" id="popup-1-city">
+                    <div class="overlayCity"></div>
+                    <div class="contentCity">
+                        <div class="close-btn-city" onclick="togglePopup()">×</div>
+                        <h1 class="cityHeaderChoose">Select your current city</h1>
+                        <div class="city_left">
+                            <button onclick="cityAhmed()" id="ahm"><img src="https://www.linkpicture.com/q/ahmedabad.png" alt="ahmedabad" class=" city_images_pop"></button>
+                            <div class="grayCity txCity">AHMEDABAD</div>
+                            <button onclick="cityBeng()" class="marg-top-city" id="beng"><img src="https://www.linkpicture.com/q/bengaluru.png" alt="bengaluru" class=" city_images_pop"></button>
+                            <div class="grayCity txCity">BENGALURU</div>
+                        </div>
+
+                        <div class="city_left ">
+                            <button onclick="cityGuru()" id="guru"><img src="https://cdn4.iconfinder.com/data/icons/indian-cities-landmarks/100/Delhi_NCR-512.png" alt="gurugram" class=" city_images_pop"></button>
+                            <div class="grayCity txCity">GURUGRAM</div>
+                            <button onclick="cityHyd()" class="marg-top-city" id="hyd"><img src="https://www.linkpicture.com/q/hyderabad.png" alt="hyderabad" class=" city_images_pop"></button>
+                            <div class="grayCity txCity">HYDERABAD</div>
+                        </div>
+                        <div class="city_left">
+                            <button onclick="cityJai()" id="jaipur"><img src="https://www.linkpicture.com/q/jaipur.png" alt="jaipur" class=" city_images_pop"></button>
+                            <div class="grayCity txCity">JAIPUR</div>
+                            <button onclick="cityMysu()" class="marg-top-city" id="mysu"><img src="https://www.linkpicture.com/q/mysuru.png" alt="mysuru" class=" city_images_pop"></button>
+                            <div class="grayCity txCity">MYSURU</div>
+                        </div>
+                        <div class="city_left">
+                            <button onclick="cityPun()" id="pun"><img src="https://www.linkpicture.com/q/pune.png" alt="pune" class=" city_images_pop"></button>
+                            <div class="grayCity txCity">PUNE</div>
+                            <button onclick="cityUdai()" class="marg-top-city" id="udai"><img src="https://www.linkpicture.com/q/udaipur.png" alt="udaipur" class=" city_images_pop"></button>
+                            <div class="grayCity txCity">UDAIPUR</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="togglePopup()" id="select_c">SELECT CITY</button>
+            </div>
+            <div class="booking">
+                <select>
+                    <option value="hour">HOURLY/DAILY</option>
+                    <option value="day">30 DAY BOOKING</option>
+                </select>
+            </div>
+            <div class="startDate">
+                <input type="datetime-local" placeholder="START DATE" />
+            </div>
+            <div class="endDate">
+                <input type="datetime-local" placeholder="END DATE" />
+            </div>
+            <div class="rideBtn">
+                <button>RIDE NOW</button>
+            </div>
+        </div>
+    </div>
+    <div class="appLink">
+        <a href="https://play.google.com/store/apps/details?id=moblie.bikerenterz&hl=en" target="_blank">
+            <img src="https://www.onnbikes.com/img/playstore.svg" />
+        </a>
+        <div>
+            <h1>ONN Bikes Rental App</h1>
+        </div>
+        <a href="https://apps.apple.com/us/app/onn-bikes/id1067173292?ls=1" target="_blank">
+            <img src="https://www.onnbikes.com/img/appstore.svg" />
+        </a>
+    </div>
+    <div class="safe">
+        <h1>Why ONN?</h1>
+        <p>We simplified bike rentals, so you can focus on what's important to you.</p>
+        <div class="safty">
+            <div>
+                <img src="https://www.onnbikes.com/img/Safe-Rides-Icon.svg" />
+                <p>Safe Rides</p>
+                <p>Your safety is our priority. From sanitizing all bikes before every use, to extensive on-ground safety measures, your rides with ONN will always be safe and reliable. We also offer helmets on-demand.</p>
+            </div>
+            <div>
+                <img src="https://www.onnbikes.com/img/Flexible-Ownership.svg" />
+                <p>Flexible Ownership</p>
+                <p>Enjoy the freedom of owning a two-wheeler without the hefty down-payments, EMIs and paperwork. Now choose from rent-to-own, monthly/quarterly bookings, and even daily plans.</p>
+            </div>
+            <div>
+                <img src="https://www.onnbikes.com/img/Smarter-Mobility.svg" />
+                <p>Smarter Mobility</p>
+                <p>With your trusty ONN app, you can choose any bike, make instant payments, get offers, and manage all aspect of your ONN experience right from the comfort and ease of your mobile app.</p>
+            </div>
+            <div>
+                <img src="https://www.onnbikes.com/img/ONN-Stations.svg" />
+                <p>ONN Stations</p>
+                <p>Your local ONN Station is here to make ensure your two-wheeler experience is flawless. At your neighborhood station, you get to pick any bike, get maintenance, sanitized, and a lot more.</p>
+            </div>
+        </div>
+    </div>
+    <div class="cover">
+        <p>Featured On</p>
+        <p>Our complete press coverage.</p>
+        <div class="press">
+            <div>
+                <a href="https://www.aninews.in/news/business/business/onn-bikes-raises-rs-45-cr-funding-towards-expansion201711201813040001/" target="_blank">
+                    <img src="https://blog.ourcrowd.com/wp-content/uploads/2018/08/ani-news.png" />
+                </a>
+            </div>
+            <div>
+                <a href="https://www.business-standard.com/article/news-ani/onn-bikes-raises-rs-4-5-cr-funding-towards-expansion-117112000903_1.html" target="_blank">
+                    <img src="https://www.avis.co.in/blog/wp-content/uploads/2017/12/business-standard-logo.png" />
+                </a>
+            </div>
+            <div>
+                <a href="http://bwdisrupt.businessworld.in/article/ONN-Bikes-Raises-Pre-Series-A-Investment-from-Z-Nation-Lab-JITO-Angels-and-Venture-Catalysts/20-11-2017-132233/" target="_blank">
+                    <img src="https://zinnov.com/sigma-accelerator/assets/images/press-release/BWDisruptBusinessWorld.png" />
+                </a>
+            </div>
+            <div>
+                <a href="https://www.thenewsminute.com/article/bike-rental-startup-onn-bikes-raises-692000-pre-series-round-led-z-nation-lab-71926" target="_blank">
+                    <img src="https://blog.ourcrowd.com/wp-content/uploads/2019/08/the-news-minute-new.jpg" />
+                </a>
+            </div>
+            <div>
+                <a href="https://www.vccircle.com/bike-rentals-startup-onn-bikes-raises-692k-in-pre-series-a-funding" target="_blank">
+                    <img src="http://naga.farm/wp/wp-content/uploads/2020/02/2020-vccircle-logo-300x158.png" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="us">
+        <h1>Contact US</h1>
+        <p>Any Bike Renting Issue? Feel Free to Contact us.</p>
+        <div class="contact">
+            <div class="cont-form">
+                <input type="text" placeholder="First Name" />
+                <input type="text" placeholder="Last Name" /></br>
+                <input type="email" placeholder="Email" /></br>
+                <input type="number" placeholder="Mobile Number" /></br>
+                <input type="text" placeholder="City" /></br>
+                <textarea id="text" placeholder="Message"></textarea>
+                <input type="submit" placeholder="Submit" class="submit" />
+            </div>
+            <div class="ourAdd">
+                <p>MUMBAI - CORPORATE HQ</p>
+                <p>BENGALURU</p>
+                <p>HYDERABAD</p>
+                <p>JAIPUR</p>
+                <p>GURUGRAM</p>
+                <p>MYSURU</p>
+                <p>PUNE</p>
+                <p>UDAIPUR</p>
+                <p>AHMEDABAD</p>
+                <p>GURGAON</p>
+            </div>
+        </div>
+    </div>
+    <div class="facts">
+        <h1 class="topfaq">Top FAQs</h1>
+        <p>Renting a Bike should be Easy, Like our FAQs.</p>
+        <div class="faq">
+            <div>
+                <p>-> How do I pay?</p>
+                <p>You can pay online using debit/credit card or e-wallets. You can also pay at the hub station during your vehicle pick-up.</p>
+                <p>-> Where can I pick up the bike from?</p>
+                <p>While booking your bike, you’ll be given an option to select a pick-up location in your vicinity.</p>
+            </div>
+            <div>
+                <p>-> What documents do I need to show while booking?</p>
+                <p>You need to show your original valid driving license and submit any one original government verified ID proof.</p>
+                <p>-> Will I be getting a complimentary helmet?</p>
+                <p>Due to COVID-19 pandemic, we avoid providing helmets to customers. We suggest customers to bring their own helmets.</p>
+            </div>
+        </div>
+        <div class="blog">
+            <p>If you have any more doubts, please visit our FAQ Section</p>
+            <p> Daily Bike Renting Plan is the most affordable plan in India. Check out our Fleet and Pricing section on top for more detailed information and if you are a bike enthusiast, check out our Blog</p>
+            <p>Announcing our exclusive association with StrodeBike - Smart Electric Cycles enabled with ONN Nucleus to provide best riding experience.</p>
+        </div>
+        <div class="bikes">
+            <h3>Popular Bikes for Rent:</h3>
+            <div>
+                <p>Honda Activa for rent</p>
+                <p>Yamaha FZ for rent</p>
+                <p>Pulsar 150 for rent</p>
+                <p>Honda Dio for rent</p>
+                <p>Royal Enfield 350 Classic for rent</p>
+                <p>Avenger 220 Cruise for rent</p>
+                <p>Avenger 220 Street for rent</p>
+                <p>Dominar 400 ABS for rent</p>
+                <p>Bajaj CT 100 for rent</p>
+                <p>Pulsar NS 200 for rent</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    //code for popup bnner
+    let banner_onn = 0;
+    if (banner_onn === 0) {
+        togglePopupBanner(0);
+    }
+
+    function togglePopupBanner(banner_val) {
+        if (banner_val === 0) {
+            document.getElementById("popup-1-Banner").classList.toggle("activeBanner");
+        } else {
+            document.getElementById("popup-1-Banner").classList.toggle("activeBanner");
+        }
+
+    }
+    //code for city popup
+    var cityPopVar = "";
+
+    function togglePopup() {
+        document.getElementById("popup-1-city").classList.toggle("activeCity");
+        cityPopVar = "";
+    }
+
+    function cityAhmed() {
+        document.getElementById("popup-1-city").classList.toggle("activeCity");
+
+        document.getElementById('select_c').innerHTML = `AHMEDABAD`;
+        cityPopVar = "ahmedabad";
+
+    }
+
+    function cityBeng() {
+        document.getElementById("popup-1-city").classList.toggle("activeCity");
+
+        document.getElementById('select_c').innerHTML = `BENGALURU`;
+        cityPopVar = "bengaluru";
+    }
+
+    function cityGuru() {
+        document.getElementById("popup-1-city").classList.toggle("activeCity");
+
+        document.getElementById('select_c').innerHTML = `GURUGRAM`;
+        cityPopVar = "gurugram";
+    }
+
+    function cityHyd() {
+        document.getElementById("popup-1-city").classList.toggle("activeCity");
+
+        document.getElementById('select_c').innerHTML = `HYDERABAD`;
+        cityPopVar = "hyderabad";
+    }
+
+    function cityJai() {
+        document.getElementById("popup-1-city").classList.toggle("activeCity");
+
+        document.getElementById('select_c').innerHTML = `JAIPUR`;
+        cityPopVar = "jaipur";
+    }
+
+    function cityMysu() {
+        document.getElementById("popup-1-city").classList.toggle("activeCity");
+
+        document.getElementById('select_c').innerHTML = `MYSURU`;
+        cityPopVar = "mysuru";
+    }
+
+    function cityPun() {
+        document.getElementById("popup-1-city").classList.toggle("activeCity");
+
+        document.getElementById('select_c').innerHTML = `PUNE`;
+        cityPopVar = "pune";
+    }
+
+    function cityUdai() {
+        document.getElementById("popup-1-city").classList.toggle("activeCity");
+
+        document.getElementById('select_c').innerHTML = `UDAIPUR`;
+        cityPopVar = "udaipur";
+    }
+    //code for go to next page/popup page
+
+    function gotonextpage() {
+        // location.href = "login_popup.html";
+    }
+
+    let myDiv = document.getElementById("page-details");
+    let imgBgArr = ["https://www.onnbikes.com/img/Self-ride-bike-rentals-desktop@2x.jpg", "https://www.onnbikes.com/img/long-term-desktopbanner@2x.jpg", "https://www.onnbikes.com/img/R2o-desktopbanner.jpg"];
+
+    let headArr = ["SELF RIDE BIKE RENTALS", "LONG TERM RENTALS", "RENT TODAY, OWN TOMORROW"];
+    let planArr = ["NOW STARTS AT ₹ 8/HOUR", "CHOOSE FROM MONTHLY & QUARTERLY PLANS", "ZERO-DOWN PAYMENT, FLEXIBLE OWNERSHIP"];
+
+    let head_add = document.querySelector(".head");
+    let plan_add = document.querySelector(".plan");
+
+    let i = 1;
+
+    setInterval(function() {
+        myDiv.style.backgroundImage = "url(" + imgBgArr[i] + ")";
+        head_add.innerHTML = headArr[i];
+        plan_add.innerHTML = planArr[i];
+        i++;
+        if (i === 3) {
+            i = 0;
+        }
+    }, 5000);
+
+    document.getElementById("why").addEventListener("click", scrollToWhy);
+    document.getElementById("whyScroll").addEventListener("click", scrollToWhy);
+
+    function scrollToWhy() {
+        document.querySelector(".appLink").scrollIntoView();
+    }
+
+    document.getElementById("faq-btn").addEventListener("click", scrollToFAQ);
+    document.getElementById("faq-btnScroll").addEventListener("click", scrollToFAQ);
+
+    function scrollToFAQ() {
+        document.querySelector(".topfaq").scrollIntoView();
+    }
+
+    document.getElementById("scroll-top").addEventListener("click", scrollToTop);
+
+    function scrollToTop() {
+        document.querySelector(".nav-bar").scrollIntoView();
+    }
+
+    window.onscroll = function() {
+        scrollNavBar()
+    };
+
+    function scrollNavBar() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            document.getElementById("scroll").style.top = 0;
+        } else {
+            document.getElementById("scroll").style.top = "-100px";
+        }
+    }
+
+    function checkStartDate() {
+        let start_div = document.querySelector(".startDate");
+        let start_dateAt = start_div.querySelector("input").value;
+        let startYear = start_dateAt.substring(0, 4);
+        let startMonth = start_dateAt.substring(5, 7);
+        let startDate = start_dateAt.substring(8, 10);
+        let startHour = start_dateAt.substring(11, 13);
+        let startMin = start_dateAt.substring(14, 16);
+
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth() + 1;
+        let date = today.getDate();
+        let hour = today.getHours();
+        let min = today.getMinutes();
+
+        if (startYear > year) {
+            return true;
+        } else if (startYear == year && startMonth > month) {
+            return true;
+        } else if (startYear == year && startMonth == month && startDate > date) {
+            return true;
+        } else if (startYear == year && startMonth == month && startDate == date && startHour > hour) {
+            return true;
+        } else if (startYear == year && startMonth == month && startDate == date && startHour == hour && startMin > min) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function callStart() {
+        if (!checkStartDate()) {
+            alert("Please select Valid Starting Date and Time")
+        }
+    }
+    document.querySelector(".endDate").querySelector("input").addEventListener("click", callStart);
+
+    function checkEndDate() {
+        let start_div = document.querySelector(".startDate");
+        let start_dateAt = start_div.querySelector("input").value;
+        let startYear = start_dateAt.substring(0, 4);
+        let startMonth = start_dateAt.substring(5, 7);
+        let startDate = start_dateAt.substring(8, 10);
+        let startHour = start_dateAt.substring(11, 13);
+        let startMin = start_dateAt.substring(14, 16);
+
+        let end_div = document.querySelector(".endDate");
+        let end_dateAt = end_div.querySelector("input").value;
+        let endYear = end_dateAt.substring(0, 4);
+        let endMonth = end_dateAt.substring(5, 7);
+        let endDate = end_dateAt.substring(8, 10);
+        let endHour = end_dateAt.substring(11, 13);
+        let endMin = end_dateAt.substring(14, 16);
+
+        if (endYear > startYear) {
+            return true;
+        } else if (endYear == startYear && endMonth > startMonth) {
+            return true;
+        } else if (endYear == startYear && endMonth == startMonth && endDate > startDate) {
+            return true;
+        } else if (endYear == startYear && endMonth == startMonth && endDate == startDate && endHour > startHour) {
+            return true;
+        } else if (endYear == startYear && endMonth == startMonth && endDate == startDate && endHour == startHour && endMin > startMin) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function rideNow() {
+
+        // let select_city = document.querySelector(".city");
+        let city = cityPopVar;
+
+        let select_plan = document.querySelector(".booking");
+        let plan = select_plan.querySelector("select").value;
+
+        let start_div = document.querySelector(".startDate");
+        let start_date = start_div.querySelector("input").value;
+
+        let end_div = document.querySelector(".endDate");
+        let end_date = end_div.querySelector("input").value;
+
+        if (city == "") {
+            alert("please select the proper city");
+        } else if (start_date === "") {
+            alert("Please Select the start date");
+        } else if (end_date === "") {
+            alert("Please Select the end date")
+        } else if (!checkStartDate()) {
+            alert("Please select Valid Start Date and Time");
+        } else if (!checkEndDate()) {
+            alert("Please select Valid End Date and Time");
+        } else {
+            localStorage.setItem("Date", JSON.stringify({
+                city: city,
+                plan: plan,
+                startDate: start_date,
+                endDate: end_date
+            }));
+            location.href = "html/login_popup.html";
+        }
+    }
+
+    document.querySelector(".rideBtn").querySelector("button").addEventListener("click", rideNow);
+
+    //on nav bar the login/signup part is working
+    function goToLoginPage() {
+        location.href = "html/login_popup.html";
+    }
+</script>
